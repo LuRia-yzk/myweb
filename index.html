@@ -1,111 +1,363 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>个人页面 · 我的网站</title>
-  <style>
-    /* 全局重置与字体 */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      min-height: 100vh;
-      background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      line-height: 1.5;
-    }
-
-    /* 居中卡片区 (实际就是flex列) */
-    .profile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      max-width: 100%;
-      width: 100%;
-    }
-
-    /* 头像样式 */
-    .avatar {
-      display: block;
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;               /* 确保svg填满圆形区域 */
-      border: 4px solid #ffffff;
-      box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.15), 0 8px 15px rgba(79, 70, 229, 0.2);
-      transition: transform 0.25s ease, box-shadow 0.3s ease;
-      background-color: #ffffff;        /* 为svg外露部分提供衬色 (实际极少) */
-    }
-
-    .avatar:hover {
-      transform: scale(1.02);
-      box-shadow: 0 25px 35px -8px rgba(79, 70, 229, 0.3);
-    }
-
-    /* 下方文字：我的网站 */
-    .site-name {
-      margin-top: 2rem;
-      font-size: 2.2rem;
-      font-weight: 550;
-      letter-spacing: 2px;
-      color: #0f172a;
-      background: rgba(255, 255, 255, 0.5);
-      backdrop-filter: blur(4px);
-      padding: 0.5rem 2rem;
-      border-radius: 60px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03), 0 0 0 1px rgba(255, 255, 255, 0.8);
-      text-shadow: 0 2px 5px rgba(255,255,255,0.5);
-      border: 1px solid rgba(255,255,255,0.6);
-      transition: all 0.2s;
-    }
-
-    .site-name:hover {
-      background: rgba(255, 255, 255, 0.75);
-      box-shadow: 0 8px 18px rgba(79, 70, 229, 0.15);
-      color: #1e1b4b;
-    }
-
-    /* 让文字在深色背景上也可爱 (保留优雅) */
-    @media (max-width: 480px) {
-      .avatar {
-        width: 130px;
-        height: 130px;
-        border-width: 3px;
-      }
-      .site-name {
-        font-size: 1.8rem;
-        padding: 0.4rem 1.2rem;
-        margin-top: 1.5rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>教学资料 · 海纳百川</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+        }
+        body {
+            min-height: 100vh;
+            background: linear-gradient(145deg, #f0f5fa 0%, #d9e4ed 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+        }
+        /* 主容器 — 模拟卡片区域 */
+        .app {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 48px;
+            box-shadow: 0 20px 40px rgba(0,20,40,0.2), 0 0 0 1px rgba(255,255,255,0.6);
+            padding: 30px 20px 40px;
+            transition: all 0.3s;
+        }
+        /* 页面 (每个页面是一个独立的flex列) */
+        .page {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .page.active {
+            display: flex;
+        }
+        /* 首页 — 书本头像 */
+        .book-avatar {
+            width: 160px;
+            height: 160px;
+            background: #4f46e5;
+            background: linear-gradient(145deg, #5f55e6, #3c34b0);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 30px -8px rgba(79,70,229,0.5), 0 8px 15px rgba(0,0,0,0.1);
+            border: 4px solid white;
+            margin: 20px 0 25px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .book-avatar:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 35px -6px #4f46e5;
+        }
+        /* 书图标（用纯css画一本简单的书） */
+        .book-icon {
+            width: 80px;
+            height: 70px;
+            background: #ffffff;
+            border-radius: 8px 20px 20px 8px;  /* 书脊效果 */
+            box-shadow: inset -6px 0 0 #e0e0e0, 0 10px 10px rgba(0,0,0,0.1);
+            position: relative;
+            transform: rotate(0deg);
+        }
+        .book-icon::before {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 12px;
+            width: 40px;
+            height: 6px;
+            background: #e0e0e0;
+            border-radius: 3px;
+            box-shadow: 0 15px 0 #e0e0e0, 0 30px 0 #e0e0e0;
+        }
+        /* 首页格言 */
+        .motto {
+            font-size: 2.2rem;
+            font-weight: 500;
+            color: #1e293b;
+            text-align: center;
+            letter-spacing: 4px;
+            background: rgba(255,255,255,0.5);
+            padding: 0.8rem 2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-top: 10px;
+            cursor: pointer;
+            transition: 0.15s;
+        }
+        .motto:hover {
+            background: rgba(255,255,255,0.8);
+            color: #0f172a;
+        }
+        /* 通用标题 */
+        .page-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 30px;
+            border-bottom: 3px solid #4f46e5;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        /* 分类卡片网格 */
+        .category-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            justify-content: center;
+            margin: 20px 0 30px;
+            width: 100%;
+        }
+        .category-card {
+            background: white;
+            padding: 24px 32px;
+            border-radius: 36px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #1e293b;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05), 0 2px 0 0 #ffffff inset;
+            border: 1px solid rgba(255,255,255,0.7);
+            backdrop-filter: blur(4px);
+            cursor: pointer;
+            transition: all 0.2s;
+            flex: 0 1 auto;
+            min-width: 130px;
+            text-align: center;
+            background: rgba(255,255,255,0.7);
+        }
+        .category-card:hover {
+            background: #4f46e5;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -8px #4f46e5;
+            border-color: transparent;
+        }
+        /* 书本列表页 */
+        .book-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 25px 0 30px;
+            width: 100%;
+        }
+        .book-item {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(4px);
+            padding: 24px 28px;
+            border-radius: 32px;
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #2d3a5e;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.6);
+            transition: 0.15s;
+            min-width: 150px;
+            text-align: center;
+        }
+        .book-item:hover {
+            background: #ffffff;
+            box-shadow: 0 12px 20px rgba(79,70,229,0.15);
+            color: #4f46e5;
+        }
+        /* 返回按钮 */
+        .back-button {
+            background: rgba(255,255,255,0.6);
+            border: 1px solid rgba(255,255,255,0.8);
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #334155;
+            margin-top: 20px;
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.02);
+            transition: 0.15s;
+        }
+        .back-button:hover {
+            background: white;
+            color: #1e293b;
+            border-color: #4f46e5;
+        }
+        /* 当前分类提示（小标签） */
+        .current-category {
+            font-size: 1.4rem;
+            color: #5b5f6b;
+            margin-bottom: 5px;
+            background: rgba(255,255,255,0.4);
+            padding: 6px 20px;
+            border-radius: 40px;
+        }
+        /* 手机小屏适配 */
+        @media (max-width: 500px) {
+            .app { padding: 20px 12px; border-radius: 36px; }
+            .book-avatar { width: 130px; height: 130px; }
+            .book-icon { width: 64px; height: 56px; }
+            .book-icon::before { left: 8px; width: 32px; }
+            .motto { font-size: 1.8rem; }
+            .category-card { font-size: 1.5rem; padding: 18px 24px; min-width: 110px; }
+            .book-item { font-size: 1.4rem; padding: 18px 20px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="profile">
-    <!-- 
-      头像：纯SVG生成，不依赖任何外部网络，自带“MS”字母（代表 My Site）
-      圆角 + 白边由CSS控制，svg内部为完整的圆形靛蓝背景，居中显示白色加粗字母MS
-    -->
-    <img
-      class="avatar"
-      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Ccircle cx='80' cy='80' r='80' fill='%234f46e5'/%3E%3Ctext x='80' y='80' font-size='70' text-anchor='middle' fill='%23ffffff' dominant-baseline='middle' alignment-baseline='middle' font-family='Arial, sans-serif' font-weight='bold'%3EMS%3C/text%3E%3C/svg%3E"
-      alt="个人头像 – 我的网站"
-      title="我的网站"
-    >
+    <div class="app">
+        <!-- 页面1：首页 -->
+        <div id="page1" class="page active">
+            <div class="book-avatar" id="goToPage2">
+                <!-- 纯CSS画的书本图标 -->
+                <div class="book-icon"></div>
+            </div>
+            <div class="motto" id="goToPage2Alt">
+                “海纳百川，有容乃大”
+            </div>
+            <!-- 小提示：点击书本或文字进入 -->
+            <div style="margin-top: 20px; color: #6b7280; font-size: 1rem;">点击上方进入资料库</div>
+        </div>
 
-    <!-- 下方显示：我的网站 -->
-    <div class="site-name">
-      我的网站
+        <!-- 页面2：分类列表页 -->
+        <div id="page2" class="page">
+            <h2 class="page-title">📚 教学分类</h2>
+            <div class="category-grid" id="categoryContainer">
+                <!-- 分类会由js动态生成，便于扩展，也可以直接写死但用js统一处理 -->
+                <!-- 但为了清晰，也可以用静态数据，同时绑定点击事件 -->
+            </div>
+            <div class="back-button" id="backToPage1">← 返回首页</div>
+        </div>
+
+        <!-- 页面3：分类下书本列表页 -->
+        <div id="page3" class="page">
+            <div class="current-category" id="currentCategoryLabel"></div>
+            <h2 class="page-title" id="bookListTitle">书本列表</h2>
+            <div class="book-list" id="bookContainer">
+                <!-- 动态生成书本列表 -->
+            </div>
+            <div class="back-button" id="backToPage2">← 返回分类</div>
+        </div>
     </div>
-  </div>
+
+    <script>
+        (function() {
+            // ----- 静态数据 (分类 及 对应的书本) -----
+            const categories = [
+                { id: 'eng', name: '英语' },
+                { id: 'chi', name: '语文' },
+                { id: 'math', name: '数学' },
+                { id: 'phy', name: '物理' },
+                { id: 'chem', name: '化学' },
+                { id: 'hist', name: '历史' }
+            ];
+
+            // 每个分类对应的书本列表 (暂用“书本A”、“书本B”样式)
+            const booksData = {
+                eng: ['📘 英语精读', '📗 英语语法', '📙 英语听力'],
+                chi: ['📖 古代文学', '📕 现代汉语', '📓 作文指南'],
+                math: ['📐 高等数学', '📏 线性代数', '🧮 概率统计'],
+                phy: ['⚛️ 物理原理', '🔭 天体物理', '💡 实验手册'],
+                chem: ['🧪 有机化学', '⚗️ 无机化学', '📊 化学分析'],
+                hist: ['🏛️ 世界历史', '🎎 中国通史', '📜 文明简史']
+            };
+
+            // 页面元素
+            const page1 = document.getElementById('page1');
+            const page2 = document.getElementById('page2');
+            const page3 = document.getElementById('page3');
+            const categoryContainer = document.getElementById('categoryContainer');
+            const bookContainer = document.getElementById('bookContainer');
+            const currentCategoryLabel = document.getElementById('currentCategoryLabel');
+            const bookListTitle = document.getElementById('bookListTitle'); // 可复用
+
+            // 按钮
+            const goToPage2Btn = document.getElementById('goToPage2');
+            const goToPage2Alt = document.getElementById('goToPage2Alt');
+            const backToPage1 = document.getElementById('backToPage1');
+            const backToPage2 = document.getElementById('backToPage2');
+
+            // 当前选中的分类id
+            let currentCategoryId = 'eng'; // 默认
+
+            // ----- 辅助函数：显示指定页面 (1/2/3) -----
+            function showPage(pageNumber) {
+                page1.classList.remove('active');
+                page2.classList.remove('active');
+                page3.classList.remove('active');
+                if (pageNumber === 1) {
+                    page1.classList.add('active');
+                } else if (pageNumber === 2) {
+                    page2.classList.add('active');
+                } else if (pageNumber === 3) {
+                    page3.classList.add('active');
+                    // 更新书本列表显示 (根据currentCategoryId)
+                    renderBookList(currentCategoryId);
+                }
+            }
+
+            // 渲染分类列表 (到page2)
+            function renderCategories() {
+                let htmlStr = '';
+                categories.forEach(cat => {
+                    htmlStr += `<div class="category-card" data-cat-id="${cat.id}">${cat.name}</div>`;
+                });
+                categoryContainer.innerHTML = htmlStr;
+
+                // 为所有分类卡片绑定点击事件
+                document.querySelectorAll('.category-card').forEach(card => {
+                    card.addEventListener('click', (e) => {
+                        const catId = card.dataset.catId;
+                        currentCategoryId = catId;
+                        // 更新page3中的分类标签
+                        const catName = categories.find(c => c.id === catId)?.name || '';
+                        currentCategoryLabel.textContent = `分类 · ${catName}`;
+                        bookListTitle.textContent = `${catName}资料`;
+                        // 跳转到页面3
+                        showPage(3);
+                    });
+                });
+            }
+
+            // 根据当前分类渲染书本列表 (page3)
+            function renderBookList(catId) {
+                const books = booksData[catId] || ['📌 示例书本A', '📌 示例书本B'];
+                let html = '';
+                books.forEach(book => {
+                    html += `<div class="book-item">${book}</div>`;
+                });
+                bookContainer.innerHTML = html;
+            }
+
+            // ----- 事件绑定 -----
+            // 首页点击书本/文字 -> 进入分类页 (page2)
+            goToPage2Btn.addEventListener('click', () => showPage(2));
+            goToPage2Alt.addEventListener('click', () => showPage(2));
+
+            // 返回首页 (从分类页)
+            backToPage1.addEventListener('click', () => showPage(1));
+
+            // 返回分类页 (从书本列表页)
+            backToPage2.addEventListener('click', () => showPage(2));
+
+            // 可选：如果直接点击分类页的“返回首页”已经ok
+
+            // 初始化: 渲染分类
+            renderCategories();
+
+            // 预填充默认分类标签 (以防万一直接进入page3, 但默认从page2进入)
+            // 但首次加载时page1激活，所以没问题。
+        })();
+    </script>
 </body>
 </html>
