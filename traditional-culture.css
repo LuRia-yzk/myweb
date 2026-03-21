@@ -53,6 +53,58 @@ body {
     flex-wrap: wrap;
 }
 
+/* 移动端导航折叠按钮 */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.toggle-icon {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--china-red);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    background: var(--china-red);
+    transition: all 0.3s ease;
+}
+
+.toggle-icon::before {
+    top: -7px;
+}
+
+.toggle-icon::after {
+    top: 7px;
+}
+
+/* 展开状态 */
+.nav-toggle.active .toggle-icon {
+    background: transparent;
+}
+
+.nav-toggle.active .toggle-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle.active .toggle-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
 .nav-item {
     text-decoration: none;
     color: var(--elegant-cyan);
@@ -399,19 +451,51 @@ body {
     }
     
     .nav-container {
+        flex-direction: row;
+        justify-content: space-between;
         padding: 0.8rem 1.5rem;
+        gap: 0;
     }
     
     .logo-area {
         font-size: 1.3rem;
+        letter-spacing: 2px;
     }
     
+    /* 显示折叠按钮 */
+    .nav-toggle {
+        display: block;
+    }
+    
+    /* 导航菜单默认隐藏 */
     .nav-menu {
-        gap: 1rem;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(248, 245, 240, 0.98);
+        flex-direction: column;
+        padding: 1rem 1.5rem;
+        gap: 0.5rem;
+        border-bottom: 2px solid var(--china-red);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .nav-menu.show {
+        max-height: 500px;
     }
     
     .nav-item {
         font-size: 0.95rem;
+        padding: 0.8rem 0;
+        border-bottom: 1px solid rgba(54, 124, 142, 0.1);
+    }
+    
+    .nav-item:last-child {
+        border-bottom: none;
     }
     
     /* 页面标题 Banner */

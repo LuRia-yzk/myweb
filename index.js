@@ -1,3 +1,22 @@
+// 移动端导航栏折叠功能
+const navToggle = document.getElementById('navToggle');
+const navMenu = document.getElementById('navMenu');
+
+if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        navMenu.classList.toggle('show');
+    });
+    
+    // 点击导航项后自动收起菜单
+    navMenu.querySelectorAll('.nav-item').forEach(item => {
+        item.addEventListener('click', function() {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('show');
+        });
+    });
+}
+
 // 导航栏交互效果
 document.querySelectorAll('.nav-item').forEach(item => {
     item.addEventListener('click', function(e) {
