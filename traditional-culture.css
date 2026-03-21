@@ -1,0 +1,582 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --china-red: #C93736;
+    --elegant-cyan: #367C8E;
+    --beige-bg: #F8F5F0;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--beige-bg);
+    font-family: "Songti SC", "SimSun", serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* 顶部固定导航 */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(248, 245, 240, 0.98);
+    border-bottom: 3px solid var(--china-red);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--china-red);
+    letter-spacing: 3px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--elegant-cyan);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--china-red);
+    background: rgba(201, 55, 54, 0.05);
+}
+
+.nav-item.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--china-red);
+}
+
+/* 页面标题 Banner */
+.page-banner {
+    margin-top: 80px;
+    padding: 4rem 2rem;
+    background: linear-gradient(180deg, var(--beige-bg) 0%, #fff 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 30% 40%, rgba(54, 124, 142, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(201, 55, 54, 0.04) 0%, transparent 50%);
+    opacity: 0.5;
+}
+
+.page-title {
+    position: relative;
+    z-index: 1;
+    font-size: 2.8rem;
+    color: var(--china-red);
+    font-weight: bold;
+    letter-spacing: 6px;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+}
+
+.page-subtitle {
+    position: relative;
+    z-index: 1;
+    font-size: 1.3rem;
+    color: var(--elegant-cyan);
+    letter-spacing: 3px;
+}
+
+/* 分类导航标签 */
+.category-nav {
+    background: #ffffff;
+    border-bottom: 2px solid var(--elegant-cyan);
+    padding: 0;
+    position: sticky;
+    top: 73px;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.category-list {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    list-style: none;
+    flex-wrap: wrap;
+}
+
+.category-item {
+    flex: 1;
+    min-width: 140px;
+    text-align: center;
+}
+
+.category-link {
+    display: block;
+    padding: 1.2rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+    position: relative;
+}
+
+.category-link:hover,
+.category-link.active {
+    color: var(--china-red);
+    background: rgba(201, 55, 54, 0.03);
+}
+
+.category-link.active {
+    border-bottom-color: var(--china-red);
+    background: rgba(201, 55, 54, 0.05);
+}
+
+/* 内容板块通用样式 */
+.content-section {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-title-main {
+    font-size: 2rem;
+    color: var(--china-red);
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title-main::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--elegant-cyan);
+}
+
+.section-desc {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-top: 1.5rem;
+    line-height: 1.8;
+}
+
+/* 内容卡片网格 */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.content-card {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.content-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    border-color: var(--elegant-cyan);
+}
+
+.card-header {
+    background: linear-gradient(135deg, var(--elegant-cyan), #2a5f6b);
+    color: var(--text-light);
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.card-text-en {
+    font-size: 1.05rem;
+    color: var(--elegant-cyan);
+    font-style: italic;
+    line-height: 1.6;
+    padding: 0.8rem;
+    background: rgba(54, 124, 142, 0.05);
+    border-left: 3px solid var(--elegant-cyan);
+    border-radius: 4px;
+}
+
+/* 诗词特殊样式 */
+.poem-card {
+    text-align: center;
+}
+
+.poem-title {
+    font-size: 1.3rem;
+    color: var(--china-red);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.poem-content {
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.poem-translation {
+    font-size: 0.95rem;
+    color: var(--elegant-cyan);
+    font-style: italic;
+    line-height: 1.6;
+    padding: 1rem;
+    background: rgba(54, 124, 142, 0.05);
+    border-radius: 8px;
+}
+
+/* 学习拓展区 */
+.learning-section {
+    background: #ffffff;
+    padding: 4rem 2rem;
+    border-top: 2px solid var(--elegant-cyan);
+}
+
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.learning-box {
+    background: var(--beige-bg);
+    border-radius: 12px;
+    padding: 2rem;
+    border-left: 5px solid var(--china-red);
+    transition: all 0.3s ease;
+}
+
+.learning-box:hover {
+    transform: translateX(8px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.learning-title {
+    font-size: 1.4rem;
+    color: var(--china-red);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.learning-list {
+    list-style: none;
+}
+
+.learning-item {
+    padding: 0.6rem 0;
+    border-bottom: 1px dashed rgba(54, 124, 142, 0.3);
+    font-size: 1rem;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.learning-item:last-child {
+    border-bottom: none;
+}
+
+.learning-item:hover {
+    color: var(--elegant-cyan);
+    padding-left: 8px;
+}
+
+/* 底部 Footer */
+.site-footer {
+    background: var(--text-dark);
+    color: #cccccc;
+    padding: 2rem;
+    text-align: center;
+}
+
+.footer-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    font-size: 0.95rem;
+}
+
+.footer-link {
+    color: var(--elegant-cyan);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    color: var(--china-red);
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+    .learning-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    /* 导航栏优化 */
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0.8rem 1rem;
+    }
+    
+    .logo-area {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+    
+    .nav-menu {
+        justify-content: center;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+    }
+    
+    .nav-item {
+        font-size: 0.9rem;
+        padding: 0.3rem 0.6rem;
+    }
+    
+    /* 页面标题 Banner 优化 */
+    .page-banner {
+        margin-top: 70px;
+        padding: 2.5rem 1rem;
+    }
+    
+    .page-title {
+        font-size: 2rem;
+        letter-spacing: 3px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+    
+    /* 分类导航标签优化 */
+    .category-nav {
+        top: 68px;
+        position: sticky;
+        z-index: 999;
+    }
+    
+    .category-list {
+        flex-direction: column;
+        gap: 0;
+    }
+    
+    .category-item {
+        min-width: 100%;
+        border-bottom: 1px solid rgba(54, 124, 142, 0.1);
+    }
+    
+    .category-link {
+        padding: 1rem 1.5rem;
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+    
+    /* 内容板块优化 */
+    .content-section {
+        padding: 3rem 1rem;
+    }
+    
+    .section-title-main {
+        font-size: 1.6rem;
+        letter-spacing: 3px;
+    }
+    
+    .section-desc {
+        font-size: 0.95rem;
+        margin-top: 1rem;
+    }
+    
+    /* 内容卡片网格优化 */
+    .content-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 1.5rem;
+    }
+    
+    .content-card {
+        border-radius: 8px;
+    }
+    
+    .card-header {
+        padding: 1.2rem;
+    }
+    
+    .card-title {
+        font-size: 1.2rem;
+    }
+    
+    .card-body {
+        padding: 1.2rem;
+    }
+    
+    .card-text {
+        font-size: 0.95rem;
+        line-height: 1.7;
+    }
+    
+    .card-text-en {
+        font-size: 0.95rem;
+    }
+    
+    /* 诗词卡片优化 */
+    .poem-title {
+        font-size: 1.2rem;
+    }
+    
+    .poem-content {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+    
+    .poem-translation {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+    
+    /* 学习拓展区优化 */
+    .learning-section {
+        padding: 3rem 1rem;
+    }
+    
+    .learning-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .learning-box {
+        padding: 1.5rem;
+    }
+    
+    .learning-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .learning-item {
+        font-size: 0.95rem;
+        padding: 0.5rem 0;
+    }
+    
+    /* Footer 优化 */
+    .footer-info {
+        flex-direction: column;
+        gap: 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* 超小屏幕进一步优化 */
+    .logo-area {
+        font-size: 1.1rem;
+    }
+    
+    .nav-item {
+        font-size: 0.85rem;
+        padding: 0.25rem 0.5rem;
+    }
+    
+    .page-title {
+        font-size: 1.6rem;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+    }
+    
+    .section-title-main {
+        font-size: 1.4rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .content-card {
+        border-radius: 8px;
+    }
+}
