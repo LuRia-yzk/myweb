@@ -1,0 +1,678 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --china-red: #C93736;
+    --elegant-cyan: #367C8E;
+    --beige-bg: #F8F5F0;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--beige-bg);
+    font-family: "Songti SC", "SimSun", serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* 顶部固定导航 */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(248, 245, 240, 0.98);
+    border-bottom: 3px solid var(--china-red);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--china-red);
+    letter-spacing: 3px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: "Songti SC", "SimSun", serif;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--china-red);
+    background: rgba(201, 55, 54, 0.05);
+}
+
+/* 移动端导航折叠按钮 */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.toggle-icon {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--china-red);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    background: var(--china-red);
+    transition: all 0.3s ease;
+}
+
+.toggle-icon::before {
+    top: -7px;
+}
+
+.toggle-icon::after {
+    top: 7px;
+}
+
+/* 展开状态 */
+.nav-toggle.active .toggle-icon {
+    background: transparent;
+}
+
+.nav-toggle.active .toggle-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle.active .toggle-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* 页面标题 Banner */
+.page-banner {
+    margin-top: 80px;
+    padding: 4rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.05) 0%, rgba(54, 124, 142, 0.05) 100%);
+    border-bottom: 2px solid var(--elegant-cyan);
+}
+
+.page-title {
+    font-size: 2.8rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+    letter-spacing: 5px;
+    font-family: "Songti SC", "SimSun", serif;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--elegant-cyan);
+    font-weight: normal;
+}
+
+/* 分类导航标签 */
+.category-nav {
+    background: var(--text-light);
+    border-bottom: 2px solid var(--elegant-cyan);
+    position: sticky;
+    top: 70px;
+    z-index: 999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.category-list {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--china-red) var(--beige-bg);
+}
+
+.category-list::-webkit-scrollbar {
+    height: 6px;
+}
+
+.category-list::-webkit-scrollbar-thumb {
+    background: var(--china-red);
+    border-radius: 3px;
+}
+
+.category-item {
+    flex-shrink: 0;
+}
+
+.category-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    font-family: "Songti SC", "SimSun", serif;
+    white-space: nowrap;
+}
+
+.category-link:hover,
+.category-link.active {
+    color: var(--china-red);
+    border-bottom-color: var(--china-red);
+    background: rgba(201, 55, 54, 0.03);
+}
+
+/* 内容板块 */
+.content-section {
+    padding: 3rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.container {
+    width: 100%;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: var(--china-red);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--china-red), var(--elegant-cyan));
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--elegant-cyan);
+    margin-bottom: 2.5rem;
+    font-style: italic;
+}
+
+/* 内容网格布局 */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.content-card {
+    background: var(--text-light);
+    border: 2px solid var(--elegant-cyan);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.content-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(54, 124, 142, 0.15);
+    border-color: var(--china-red);
+}
+
+.content-card.highlight-card {
+    border-color: var(--china-red);
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.03) 0%, rgba(201, 55, 54, 0.08) 100%);
+}
+
+.content-card h3 {
+    font-size: 1.5rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+    font-family: "Songti SC", "SimSun", serif;
+}
+
+.english-text {
+    color: var(--elegant-cyan);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.content-card p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-indent: 2em;
+}
+
+/* 诗词区块 */
+.poem-block {
+    background: rgba(248, 245, 240, 0.8);
+    padding: 1.5rem;
+    border-left: 4px solid var(--china-red);
+    margin: 1rem 0;
+    border-radius: 4px;
+}
+
+.chinese-poem {
+    font-size: 1.1rem;
+    line-height: 2;
+    margin-bottom: 0.3rem;
+    font-family: "KaiTi", "楷体", serif;
+    color: var(--text-dark);
+}
+
+.poem-divider {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px dashed var(--elegant-cyan);
+}
+
+.english-poem {
+    font-size: 1rem;
+    line-height: 1.8;
+    color: var(--elegant-cyan);
+    font-style: italic;
+}
+
+/* 列表样式 */
+.culture-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.culture-list li {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-left: 3px solid var(--elegant-cyan);
+    background: rgba(248, 245, 240, 0.5);
+    transition: all 0.3s ease;
+}
+
+.culture-list li:hover {
+    border-left-color: var(--china-red);
+    background: rgba(201, 55, 54, 0.03);
+    padding-left: 1.5rem;
+}
+
+.culture-list strong {
+    color: var(--china-red);
+    font-size: 1.1rem;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+/* 美食网格 */
+.food-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.food-item {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid var(--elegant-cyan);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.food-item:hover {
+    background: rgba(54, 124, 142, 0.05);
+    transform: scale(1.02);
+}
+
+.food-item h4 {
+    color: var(--china-red);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.food-item p {
+    color: var(--elegant-cyan);
+    font-size: 0.95rem;
+    text-indent: 0;
+}
+
+/* 特产网格 */
+.specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.specialty-item {
+    text-align: center;
+    padding: 1rem;
+    border: 1px solid var(--elegant-cyan);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.specialty-item:hover {
+    background: rgba(201, 55, 54, 0.05);
+    border-color: var(--china-red);
+}
+
+.specialty-item h4 {
+    color: var(--china-red);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.specialty-item p {
+    color: var(--elegant-cyan);
+    font-size: 0.95rem;
+    text-indent: 0;
+}
+
+/* 故事区块 */
+.story-block {
+    background: rgba(248, 245, 240, 0.6);
+    padding: 1.5rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+}
+
+.story-block h4 {
+    color: var(--china-red);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* 拓展区样式 */
+.extension-section {
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.03) 0%, rgba(54, 124, 142, 0.03) 100%);
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.extension-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.extension-card {
+    background: var(--text-light);
+    border: 2px solid var(--elegant-cyan);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.extension-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(54, 124, 142, 0.12);
+    border-color: var(--china-red);
+}
+
+.extension-card h3 {
+    font-size: 1.5rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+}
+
+.script-content {
+    margin-top: 1rem;
+}
+
+.script-content h4 {
+    color: var(--china-red);
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.script-content hr {
+    margin: 1.5rem 0;
+    border: none;
+    border-top: 1px dashed var(--elegant-cyan);
+}
+
+.script-content p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-indent: 2em;
+}
+
+/* 研学材料 */
+.study-materials {
+    margin-top: 1rem;
+}
+
+.material-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(248, 245, 240, 0.5);
+    border-radius: 6px;
+    border-left: 3px solid var(--elegant-cyan);
+}
+
+.material-item h4 {
+    color: var(--china-red);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.material-item ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.material-item li {
+    padding: 0.5rem 0;
+    line-height: 1.6;
+    color: var(--text-dark);
+}
+
+.material-item strong {
+    color: var(--elegant-cyan);
+}
+
+/* 词汇表 */
+.vocabulary-list {
+    margin-top: 1rem;
+}
+
+.vocab-item {
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(54, 124, 142, 0.2);
+    transition: all 0.3s ease;
+}
+
+.vocab-item:hover {
+    background: rgba(201, 55, 54, 0.03);
+    border-bottom-color: var(--china-red);
+}
+
+.vocab-item strong {
+    color: var(--china-red);
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+
+.vocab-item p {
+    color: var(--text-dark);
+    text-indent: 0;
+    margin: 0;
+}
+
+/* 页脚 */
+.site-footer {
+    background: var(--text-dark);
+    color: var(--text-light);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+    line-height: 1.8;
+    text-indent: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(248, 245, 240, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .nav-menu.show {
+        left: 0;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    .category-list {
+        padding: 0 1rem;
+    }
+
+    .content-grid,
+    .extension-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .food-grid,
+    .specialties-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .content-section {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+
+    .logo-area {
+        font-size: 1.2rem;
+    }
+
+    .nav-item {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .page-banner {
+        padding: 2.5rem 1rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .content-card {
+        padding: 1.5rem;
+    }
+
+    .extension-card {
+        padding: 1.5rem;
+    }
+
+    .food-grid,
+    .specialties-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1201px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+}

@@ -1,0 +1,853 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --china-red: #C93736;
+    --elegant-cyan: #367C8E;
+    --beige-bg: #F8F5F0;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --border-color: rgba(54, 124, 142, 0.2);
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--beige-bg);
+    font-family: "Songti SC", "SimSun", serif;
+    color: var(--text-dark);
+    overflow-x: hidden;
+}
+
+/* 顶部固定导航 */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(248, 245, 240, 0.98);
+    border-bottom: 3px solid var(--china-red);
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.nav-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0.8rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-area {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--china-red);
+    letter-spacing: 3px;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.nav-item {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: "Songti SC", "SimSun", serif;
+}
+
+.nav-item:hover,
+.nav-item.active {
+    color: var(--china-red);
+    background: rgba(201, 55, 54, 0.05);
+}
+
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.toggle-icon {
+    display: block;
+    width: 24px;
+    height: 3px;
+    background: var(--china-red);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.toggle-icon::before,
+.toggle-icon::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 3px;
+    background: var(--china-red);
+    transition: all 0.3s ease;
+}
+
+.toggle-icon::before {
+    top: -7px;
+}
+
+.toggle-icon::after {
+    top: 7px;
+}
+
+.nav-toggle.active .toggle-icon {
+    background: transparent;
+}
+
+.nav-toggle.active .toggle-icon::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.nav-toggle.active .toggle-icon::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+/* 页面标题 Banner */
+.page-banner {
+    margin-top: 80px;
+    padding: 4rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.05) 0%, rgba(54, 124, 142, 0.05) 100%);
+    border-bottom: 2px solid var(--elegant-cyan);
+}
+
+.page-title {
+    font-size: 2.8rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+    letter-spacing: 5px;
+    font-family: "Songti SC", "SimSun", serif;
+}
+
+.page-subtitle {
+    font-size: 1.2rem;
+    color: var(--elegant-cyan);
+    font-weight: normal;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    color: var(--china-red);
+    text-align: center;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--china-red), var(--elegant-cyan));
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--elegant-cyan);
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+/* 项目总览板块 */
+.overview-section {
+    padding: 3rem 2rem;
+}
+
+.overview-card {
+    background: var(--text-light);
+    border: 2px solid var(--elegant-cyan);
+    border-radius: 8px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.overview-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--elegant-cyan);
+}
+
+.overview-title {
+    font-size: 2rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+}
+
+.overview-subtitle {
+    font-size: 1.1rem;
+    color: var(--elegant-cyan);
+    font-style: italic;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.overview-item {
+    text-align: center;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.overview-item:hover {
+    border-color: var(--china-red);
+    background: rgba(201, 55, 54, 0.02);
+    transform: translateY(-5px);
+    box-shadow: 0 6px 16px rgba(201, 55, 54, 0.1);
+}
+
+.item-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.overview-item h3 {
+    font-size: 1.5rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+}
+
+.overview-item .english-text {
+    color: var(--elegant-cyan);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.overview-item p {
+    line-height: 1.8;
+    text-indent: 2em;
+}
+
+.project-code {
+    background: rgba(54, 124, 142, 0.08);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: bold;
+    color: var(--elegant-cyan);
+    margin: 1rem 0;
+    text-indent: 0;
+    text-align: center;
+}
+
+/* 研究背景板块 */
+.background-section {
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.02) 0%, rgba(54, 124, 142, 0.02) 100%);
+}
+
+.background-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.background-card {
+    background: var(--text-light);
+    border: 2px solid var(--elegant-cyan);
+    border-radius: 8px;
+    padding: 2.5rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.background-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(54, 124, 142, 0.12);
+    border-color: var(--china-red);
+}
+
+.card-number {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(201, 55, 54, 0.1);
+    font-family: "Arial Black", sans-serif;
+}
+
+.background-card h3 {
+    font-size: 1.6rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+    padding-right: 3rem;
+}
+
+.background-card .english-text {
+    color: var(--elegant-cyan);
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.background-card p {
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    text-indent: 2em;
+}
+
+/* 政策支撑板块 */
+.policy-section {
+    padding: 3rem 2rem;
+}
+
+.policy-timeline {
+    margin-top: 2rem;
+}
+
+.policy-item {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: var(--text-light);
+    border: 2px solid var(--elegant-cyan);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.policy-item:hover {
+    border-color: var(--china-red);
+    box-shadow: 0 4px 16px rgba(201, 55, 54, 0.1);
+}
+
+.policy-year {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--china-red), #A93226);
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 8px;
+}
+
+.policy-content {
+    flex: 1;
+}
+
+.policy-content h3 {
+    font-size: 1.4rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+}
+
+.policy-content .english-text {
+    color: var(--elegant-cyan);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.policy-content p {
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+}
+
+.policy-content strong {
+    color: var(--elegant-cyan);
+}
+
+/* 调研基础板块 */
+.research-section {
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(54, 124, 142, 0.02) 0%, rgba(201, 55, 54, 0.02) 100%);
+}
+
+.research-overview {
+    background: var(--text-light);
+    border: 2px solid var(--elegant-cyan);
+    border-radius: 8px;
+    padding: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.research-intro {
+    margin-bottom: 2rem;
+}
+
+.research-intro h3 {
+    font-size: 1.6rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+}
+
+.research-intro .english-text {
+    color: var(--elegant-cyan);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.research-intro p {
+    line-height: 1.8;
+    text-indent: 2em;
+}
+
+.research-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(248, 245, 240, 0.6);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+    font-family: "Arial Black", sans-serif;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin-bottom: 0.3rem;
+}
+
+.stat-english {
+    font-size: 0.85rem;
+    color: var(--elegant-cyan);
+    font-style: italic;
+}
+
+.findings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.finding-card {
+    background: var(--text-light);
+    border: 2px solid var(--elegant-cyan);
+    border-radius: 8px;
+    padding: 2rem;
+}
+
+.finding-card h3 {
+    font-size: 1.5rem;
+    color: var(--china-red);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--elegant-cyan);
+}
+
+.finding-list {
+    list-style: none;
+}
+
+.finding-list li {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5em;
+    position: relative;
+    line-height: 1.7;
+}
+
+.finding-list li::before {
+    content: '▸';
+    color: var(--china-red);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 1.2rem;
+}
+
+.finding-list strong {
+    color: var(--elegant-cyan);
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.needs-analysis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.need-item h4 {
+    color: var(--china-red);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--elegant-cyan);
+}
+
+.need-item ul {
+    list-style: none;
+}
+
+.need-item li {
+    padding: 0.5rem 0;
+    line-height: 1.6;
+    padding-left: 1.2em;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.need-item li::before {
+    content: '•';
+    color: var(--elegant-cyan);
+    position: absolute;
+    left: 0;
+}
+
+/* 项目目标板块 */
+.objectives-section {
+    padding: 3rem 2rem;
+}
+
+.objectives-content {
+    margin-top: 2rem;
+}
+
+.main-objective {
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.05) 0%, rgba(54, 124, 142, 0.05) 100%);
+    border: 2px solid var(--china-red);
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-bottom: 2rem;
+}
+
+.main-objective .objective-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.main-objective h3 {
+    font-size: 1.8rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+}
+
+.main-objective .english-text {
+    color: var(--elegant-cyan);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
+.main-objective p {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+    text-indent: 0;
+}
+
+.objectives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.objective-card {
+    background: var(--text-light);
+    border: 2px solid var(--elegant-cyan);
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.objective-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(54, 124, 142, 0.12);
+    border-color: var(--china-red);
+}
+
+.objective-number {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgba(201, 55, 54, 0.1);
+    font-family: "Arial Black", sans-serif;
+}
+
+.objective-card h4 {
+    font-size: 1.4rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+    padding-right: 3rem;
+}
+
+.objective-card .english-text {
+    color: var(--elegant-cyan);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.objective-card ul {
+    list-style: none;
+}
+
+.objective-card li {
+    padding: 0.5rem 0;
+    line-height: 1.6;
+    padding-left: 1.5em;
+    position: relative;
+}
+
+.objective-card li::before {
+    content: '✓';
+    color: var(--china-red);
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* 项目特色板块 */
+.features-section {
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.02) 0%, rgba(54, 124, 142, 0.02) 100%);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: var(--text-light);
+    border: 2px solid var(--elegant-cyan);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(54, 124, 142, 0.12);
+    border-color: var(--china-red);
+}
+
+.feature-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    color: var(--china-red);
+    margin-bottom: 0.5rem;
+}
+
+.feature-card .english-text {
+    color: var(--elegant-cyan);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.feature-card p {
+    line-height: 1.7;
+    text-indent: 2em;
+}
+
+/* 页脚 */
+.site-footer {
+    background: var(--text-dark);
+    color: var(--text-light);
+    padding: 2rem;
+    margin-top: 3rem;
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.footer-content p {
+    margin: 0.5rem 0;
+    line-height: 1.8;
+    text-indent: 0;
+}
+
+.project-info {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(248, 245, 240, 0.98);
+        flex-direction: column;
+        padding: 2rem;
+        gap: 1rem;
+        transition: left 0.3s ease;
+        overflow-y: auto;
+    }
+
+    .nav-menu.show {
+        left: 0;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .page-subtitle {
+        font-size: 1rem;
+    }
+
+    .section-title {
+        font-size: 1.6rem;
+    }
+
+    .overview-grid,
+    .background-grid,
+    .objectives-grid,
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .policy-item {
+        flex-direction: column;
+    }
+
+    .policy-year {
+        width: 100%;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .findings-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .research-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .needs-analysis {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    html {
+        font-size: 12px;
+    }
+
+    .logo-area {
+        font-size: 1.2rem;
+    }
+
+    .nav-item {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .page-banner {
+        padding: 2.5rem 1rem;
+    }
+
+    .page-title {
+        font-size: 1.8rem;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .overview-card,
+    .background-card,
+    .finding-card,
+    .objective-card,
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .research-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1201px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 13px;
+    }
+}
