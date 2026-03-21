@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中华优秀传统文化 · 英语学习专区 - 惠州英语文化育人平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --china-red: #C93736;
+            --elegant-cyan: #367C8E;
+            --beige-bg: #F8F5F0;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+        }
+
+        body {
+            min-height: 100vh;
+            background-color: var(--beige-bg);
+            font-family: "Songti SC", "SimSun", serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* 顶部固定导航 */
+        .main-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(248, 245, 240, 0.98);
+            border-bottom: 3px solid var(--china-red);
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.8rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--china-red);
+            letter-spacing: 3px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--elegant-cyan);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--china-red);
+            background: rgba(201, 55, 54, 0.05);
+        }
+
+        .nav-item.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 2px;
+            background: var(--china-red);
+        }
+
+        /* 页面标题 Banner */
+        .page-banner {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+            background: linear-gradient(180deg, var(--beige-bg) 0%, #fff 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 30% 40%, rgba(54, 124, 142, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 70% 60%, rgba(201, 55, 54, 0.04) 0%, transparent 50%);
+            opacity: 0.5;
+        }
+
+        .page-title {
+            position: relative;
+            z-index: 1;
+            font-size: 2.8rem;
+            color: var(--china-red);
+            font-weight: bold;
+            letter-spacing: 6px;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.08);
+        }
+
+        .page-subtitle {
+            position: relative;
+            z-index: 1;
+            font-size: 1.3rem;
+            color: var(--elegant-cyan);
+            letter-spacing: 3px;
+        }
+
+        /* 分类导航标签 */
+        .category-nav {
+            background: #ffffff;
+            border-bottom: 2px solid var(--elegant-cyan);
+            padding: 0;
+            position: sticky;
+            top: 73px;
+            z-index: 999;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .category-list {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+        }
+
+        .category-link {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            position: relative;
+        }
+
+        .category-link:hover,
+        .category-link.active {
+            color: var(--china-red);
+            background: rgba(201, 55, 54, 0.03);
+        }
+
+        .category-link.active {
+            border-bottom-color: var(--china-red);
+            background: rgba(201, 55, 54, 0.05);
+        }
+
+        /* 内容板块通用样式 */
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title-main {
+            font-size: 2rem;
+            color: var(--china-red);
+            letter-spacing: 4px;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title-main::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: var(--elegant-cyan);
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-top: 1.5rem;
+            line-height: 1.8;
+        }
+
+        /* 内容卡片网格 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .content-card {
+            background: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .content-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+            border-color: var(--elegant-cyan);
+        }
+
+        .card-header {
+            background: linear-gradient(135deg, var(--elegant-cyan), #2a5f6b);
+            color: var(--text-light);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        .card-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .card-text-en {
+            font-size: 1.05rem;
+            color: var(--elegant-cyan);
+            font-style: italic;
+            line-height: 1.6;
+            padding: 0.8rem;
+            background: rgba(54, 124, 142, 0.05);
+            border-left: 3px solid var(--elegant-cyan);
+            border-radius: 4px;
+        }
+
+        /* 诗词特殊样式 */
+        .poem-card {
+            text-align: center;
+        }
+
+        .poem-title {
+            font-size: 1.3rem;
+            color: var(--china-red);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .poem-content {
+            font-size: 1.1rem;
+            line-height: 2;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+        }
+
+        .poem-translation {
+            font-size: 0.95rem;
+            color: var(--elegant-cyan);
+            font-style: italic;
+            line-height: 1.6;
+            padding: 1rem;
+            background: rgba(54, 124, 142, 0.05);
+            border-radius: 8px;
+        }
+
+        /* 学习拓展区 */
+        .learning-section {
+            background: #ffffff;
+            padding: 4rem 2rem;
+            border-top: 2px solid var(--elegant-cyan);
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .learning-box {
+            background: var(--beige-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 5px solid var(--china-red);
+            transition: all 0.3s ease;
+        }
+
+        .learning-box:hover {
+            transform: translateX(8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .learning-title {
+            font-size: 1.4rem;
+            color: var(--china-red);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .learning-list {
+            list-style: none;
+        }
+
+        .learning-item {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed rgba(54, 124, 142, 0.3);
+            font-size: 1rem;
+            color: var(--text-dark);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .learning-item:last-child {
+            border-bottom: none;
+        }
+
+        .learning-item:hover {
+            color: var(--elegant-cyan);
+            padding-left: 8px;
+        }
+
+        /* 底部 Footer */
+        .site-footer {
+            background: var(--text-dark);
+            color: #cccccc;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+        }
+
+        .footer-link {
+            color: var(--elegant-cyan);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-link:hover {
+            color: var(--china-red);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 1200px) {
+            .learning-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .nav-menu {
+                justify-content: center;
+            }
+            .page-title {
+                font-size: 2rem;
+                letter-spacing: 3px;
+            }
+            .category-list {
+                flex-direction: column;
+            }
+            .category-item {
+                min-width: 100%;
+            }
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            .learning-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部固定导航 -->
+    <header class="main-header">
+        <div class="nav-container">
+            <div class="logo-area">惠州英语文化育人平台</div>
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-item">首页</a>
+                <a href="#" class="nav-item active">中华优秀传统文化</a>
+                <a href="#" class="nav-item">中国红色文化</a>
+                <a href="#" class="nav-item">中国当代文化</a>
+                <a href="#" class="nav-item">惠州本土文化</a>
+                <a href="#" class="nav-item">文化育人资源库</a>
+                <a href="#" class="nav-item">项目介绍</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 页面标题 Banner -->
+    <section class="page-banner">
+        <h1 class="page-title">中华优秀传统文化</h1>
+        <p class="page-subtitle">英语学习专区 · English Learning Zone</p>
+    </section>
+
+    <!-- 分类导航标签 -->
+    <nav class="category-nav">
+        <ul class="category-list">
+            <li class="category-item">
+                <a href="#festivals" class="category-link active">传统节日</a>
+            </li>
+            <li class="category-item">
+                <a href="#poems" class="category-link">经典诗词</a>
+            </li>
+            <li class="category-item">
+                <a href="#heritage" class="category-link">非遗技艺</a>
+            </li>
+            <li class="category-item">
+                <a href="#virtues" class="category-link">中华美德</a>
+            </li>
+            <li class="category-item">
+                <a href="#figures" class="category-link">历史名人</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- 传统节日板块 -->
+    <section id="festivals" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title-main">传统节日</h2>
+            <p class="section-desc">中国传统节日的英文介绍与习俗讲解<br>Traditional Chinese Festivals and Customs</p>
+        </div>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">春节 Spring Festival</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">春节是中国最重要的传统节日，象征着团圆和新的开始。人们会贴春联、放鞭炮、吃年夜饭、给压岁钱。</p>
+                    <p class="card-text-en">The Spring Festival is the most important traditional festival in China, symbolizing reunion and new beginnings. People paste spring couplets, set off firecrackers, have reunion dinners, and give red envelopes.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">端午节 Dragon Boat Festival</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">端午节纪念爱国诗人屈原，主要习俗包括赛龙舟、吃粽子、挂艾草，体现了中华民族的爱国情怀。</p>
+                    <p class="card-text-en">The Dragon Boat Festival commemorates the patriotic poet Qu Yuan. Main customs include dragon boat racing, eating zongzi, and hanging mugwort, reflecting the patriotism of the Chinese nation.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">中秋节 Mid-Autumn Festival</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">中秋节是团圆的节日，人们赏月、吃月饼、饮桂花酒，寄托对家人团聚的美好愿望。</p>
+                    <p class="card-text-en">The Mid-Autumn Festival is a festival of reunion. People admire the full moon, eat mooncakes, and drink osmanthus wine, expressing good wishes for family reunion.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">重阳节 Double Ninth Festival</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">重阳节有登高、赏菊、插茱萸等习俗，现在也被定为老人节，倡导尊老敬老的传统美德。</p>
+                    <p class="card-text-en">The Double Ninth Festival features customs such as climbing mountains, admiring chrysanthemums, and wearing dogwood. It is now also designated as Elderly Day, promoting the virtue of respecting the elderly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 经典诗词板块 -->
+    <section id="poems" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title-main">经典诗词</h2>
+            <p class="section-desc">唐诗宋词英译欣赏与诵读<br>English Translation and Recitation of Tang Poetry and Song Ci</p>
+        </div>
+        <div class="content-grid">
+            <div class="content-card poem-card">
+                <div class="card-body">
+                    <h3 class="poem-title">静夜思 Li Bai</h3>
+                    <p class="poem-content">床前明月光，<br>疑是地上霜。<br>举头望明月，<br>低头思故乡。</p>
+                    <p class="poem-translation">In the Still Night by Li Bai:<br>Bright moonlight before my bed,<br>Suspected frost upon the ground.<br>I raise my head to watch the bright moon,<br>I lower my head and think of homeland.</p>
+                </div>
+            </div>
+            <div class="content-card poem-card">
+                <div class="card-body">
+                    <h3 class="poem-title">春晓 Meng Haoran</h3>
+                    <p class="poem-content">春眠不觉晓，<br>处处闻啼鸟。<br>夜来风雨声，<br>花落知多少。</p>
+                    <p class="poem-translation">Spring Dawn by Meng Haoran:<br>Sleeping in spring, I know not dawn,<br>Everywhere I hear birds singing.<br>Last night came sounds of wind and rain,<br>How many flowers have fallen?</p>
+                </div>
+            </div>
+            <div class="content-card poem-card">
+                <div class="card-body">
+                    <h3 class="poem-title">水调歌头 Su Shi</h3>
+                    <p class="poem-content">明月几时有？<br>把酒问青天。<br>不知天上宫阙，<br>今夕是何年。</p>
+                    <p class="poem-translation">Shuidiao Getou by Su Shi:<br>When will the moon be clear and bright?<br>With wine in hand, I ask the sky.<br>I wonder what time it is tonight,<br>In those celestial courts on high.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 非遗技艺板块 -->
+    <section id="heritage" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title-main">非遗技艺</h2>
+            <p class="section-desc">中国非物质文化遗产的英文讲解<br>English Introduction to Intangible Cultural Heritage</p>
+        </div>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">剪纸 Paper Cutting</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">剪纸是中国传统民间艺术，用剪刀或刻刀在纸上创作图案，常用于装饰和节日庆典，表达美好祝愿。</p>
+                    <p class="card-text-en">Paper cutting is a traditional Chinese folk art. Artists create patterns with scissors or carving knives on paper, often used for decoration and festivals, expressing good wishes.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">书法 Calligraphy</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">中国书法是汉字书写艺术，通过毛笔的运笔技巧表现文字的美感和神韵，是中华文化的重要瑰宝。</p>
+                    <p class="card-text-en">Chinese calligraphy is the art of writing Chinese characters. It expresses the beauty and spirit of characters through brush techniques, representing a precious treasure of Chinese culture.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">戏曲 Chinese Opera</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">中国戏曲是综合性表演艺术，融合唱、念、做、打四种艺术手法，京剧被誉为"国粹"。</p>
+                    <p class="card-text-en">Chinese opera is a comprehensive performing art that integrates singing, recitation, acting, and acrobatics. Peking Opera is known as the "quintessence" of Chinese culture.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">茶艺 Tea Art</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">中国茶文化源远流长，茶艺包括选茶、择水、烹煮、品饮等环节，体现了中国人的生活美学。</p>
+                    <p class="card-text-en">Chinese tea culture has a long history. Tea art includes selecting tea, choosing water, brewing, and tasting, reflecting the life aesthetics of Chinese people.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">武术 Martial Arts</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">中国武术是传统体育项目，讲究内外兼修，既有攻防技击价值，也有健身养生功能。</p>
+                    <p class="card-text-en">Chinese martial arts are traditional sports emphasizing both internal and external cultivation. They have combat value and health-preserving functions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 中华美德板块 -->
+    <section id="virtues" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title-main">中华美德</h2>
+            <p class="section-desc">中华传统美德的德育英文素材<br>Moral Education Materials on Traditional Chinese Virtues</p>
+        </div>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">孝 Filial Piety</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">"百善孝为先"，孝道是中华民族的传统美德，要求子女尊敬、赡养父母，感恩养育之恩。</p>
+                    <p class="card-text-en">"Filial piety is the first among all virtues." It requires children to respect and support their parents and be grateful for their upbringing.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">礼 Propriety</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">礼是行为规范，包括礼貌、礼仪、礼节。孔子曰："不学礼，无以立"，强调礼的重要性。</p>
+                    <p class="card-text-en">Propriety refers to behavioral norms, including politeness, etiquette, and rituals. Confucius said, "Without learning propriety, one cannot establish oneself."</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">诚 Honesty</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">诚信是做人之本，"言必信，行必果"。诚实守信用是人际交往的基本准则。</p>
+                    <p class="card-text-en">Honesty is the foundation of being a person. "Words must be trustworthy, actions must be fruitful." Being honest and keeping promises are basic principles of interpersonal communication.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">和 Harmony</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">"和为贵"，和谐是中华文化的核心理念，追求人与人、人与自然、人与社会的和谐共处。</p>
+                    <p class="card-text-en">"Harmony is the most precious." Harmony is the core concept of Chinese culture, pursuing peaceful coexistence between people, nature, and society.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 历史名人板块 -->
+    <section id="figures" class="content-section">
+        <div class="section-header">
+            <h2 class="section-title-main">历史名人</h2>
+            <p class="section-desc">中国古代杰出人物的英文人物介绍<br>English Introductions to Outstanding Historical Figures</p>
+        </div>
+        <div class="content-grid">
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">孔子 Confucius</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">孔子（前 551-前 479），名丘，字仲尼，春秋时期鲁国人。他是伟大的思想家、教育家，儒家学派创始人，被尊为"至圣先师"。</p>
+                    <p class="card-text-en">Confucius (551-479 BC), named Qiu, courtesy name Zhongni, was from the State of Lu during the Spring and Autumn Period. He was a great thinker and educator, founder of the Confucian school, honored as the "Sage Teacher."</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">屈原 Qu Yuan</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">屈原（约前 340-前 278），战国时期楚国诗人、政治家。他创作了《离骚》等不朽诗篇，因忧国投江自尽，后人以端午节纪念他。</p>
+                    <p class="card-text-en">Qu Yuan (c. 340-278 BC) was a poet and statesman of the State of Chu during the Warring States Period. He created immortal poems like "Li Sao." He drowned himself out of concern for his country, and people commemorate him during the Dragon Boat Festival.</p>
+                </div>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <h3 class="card-title">苏轼 Su Shi</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">苏轼（1037-1101），字子瞻，号东坡居士，北宋文学家、书画家。他的诗词文书画皆有极高成就，是唐宋八大家之一。</p>
+                    <p class="card-text-en">Su Shi (1037-1101), courtesy name Zizhan, pen name Dongpo Jushi, was a Northern Song dynasty literati, calligrapher, and painter. He achieved great success in poetry, prose, calligraphy, and painting, and is one of the Eight Great Masters of the Tang and Song dynasties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学习拓展区 -->
+    <section class="learning-section">
+        <div class="section-header">
+            <h2 class="section-title-main">学习拓展</h2>
+        </div>
+        <div class="learning-grid">
+            <div class="learning-box">
+                <h3 class="learning-title">📖 文化词汇</h3>
+                <ul class="learning-list">
+                    <li class="learning-item">传统文化 Traditional Culture</li>
+                    <li class="learning-item">文化遗产 Cultural Heritage</li>
+                    <li class="learning-item">民俗 Folk Custom</li>
+                    <li class="learning-item">美德 Virtue</li>
+                    <li class="learning-item">传承 Inheritance</li>
+                    <li class="learning-item">弘扬 Promote</li>
+                </ul>
+            </div>
+            <div class="learning-box">
+                <h3 class="learning-title">💬 英文短句</h3>
+                <ul class="learning-list">
+                    <li class="learning-item">Culture is the soul of a nation.</li>
+                    <li class="learning-item">Traditional virtues never fade.</li>
+                    <li class="learning-item">Learn from the past, create the future.</li>
+                    <li class="learning-item">East or west, home is best.</li>
+                    <li class="learning-item">Practice makes perfect.</li>
+                    <li class="learning-item">Knowledge is power.</li>
+                </ul>
+            </div>
+            <div class="learning-box">
+                <h3 class="learning-title">📰 阅读素材</h3>
+                <ul class="learning-list">
+                    <li class="learning-item">中国传统文化概览</li>
+                    <li class="learning-item">节日故事与文化内涵</li>
+                    <li class="learning-item">古代名人轶事</li>
+                    <li class="learning-item">成语故事精选</li>
+                    <li class="learning-item">神话传说选读</li>
+                    <li class="learning-item">经典名句赏析</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 Footer -->
+    <footer class="site-footer">
+        <div class="footer-info">
+            <span>项目编号：HZSK2024ZD001</span>
+            <span>© 惠州英语文化育人平台</span>
+            <a href="#" class="footer-link">联系我们</a>
+        </div>
+    </footer>
+
+    <script>
+        // 导航栏激活效果
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // 如果是空链接，阻止默认行为并只切换激活状态
+                if (href === '#') {
+                    e.preventDefault();
+                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                // 如果是有效链接，允许正常跳转，不阻止默认行为
+            });
+        });
+
+        // 分类导航滚动定位
+        document.querySelectorAll('.category-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.category-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // 卡片点击效果
+        document.querySelectorAll('.content-card, .learning-item').forEach(card => {
+            card.addEventListener('click', function() {
+                console.log('Selected:', this.textContent.trim());
+                // 后续可添加实际跳转逻辑或弹窗显示详细内容
+            });
+        });
+
+        // 监听滚动，自动高亮当前分类
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.content-section');
+            const navLinks = document.querySelectorAll('.category-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -437,8 +437,8 @@
         <div class="nav-container">
             <div class="logo-area">惠州英语文化育人平台</div>
             <nav class="nav-menu">
-                <a href="#" class="nav-item active">首页</a>
-                <a href="#" class="nav-item">中华优秀传统文化</a>
+                <a href="index.html" class="nav-item active">首页</a>
+                <a href="traditional-culture.html" class="nav-item">中华优秀传统文化</a>
                 <a href="#" class="nav-item">中国红色文化</a>
                 <a href="#" class="nav-item">中国当代文化</a>
                 <a href="#" class="nav-item">惠州本土文化</a>
@@ -465,9 +465,9 @@
     <!-- 五大文化核心入口 -->
     <section class="core-entries-section">
         <div class="entry-grid">
-            <div class="culture-card">
+            <a href="traditional-culture.html" class="culture-card" style="text-decoration: none;">
                 <h3>中华优秀传统文化</h3>
-            </div>
+            </a>
             <div class="culture-card">
                 <h3>中国红色文化</h3>
             </div>
@@ -477,9 +477,9 @@
             <div class="culture-card">
                 <h3>惠州本土文化</h3>
             </div>
-            <div class="culture-card highlight">
+            <a href="#" class="culture-card highlight" style="text-decoration: none;">
                 <h3>文化育人资源库</h3>
-            </div>
+            </a>
         </div>
     </section>
 
@@ -522,12 +522,18 @@
     </footer>
 
     <script>
-        // 简单的交互效果
+        // 导航栏交互效果
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
-                this.classList.add('active');
+                const href = this.getAttribute('href');
+                
+                // 如果是空链接，阻止默认行为并只切换激活状态
+                if (href === '#') {
+                    e.preventDefault();
+                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                // 如果是有效链接，允许正常跳转，不阻止默认行为
             });
         });
 
