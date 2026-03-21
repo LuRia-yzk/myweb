@@ -384,97 +384,229 @@ body {
     color: var(--china-red);
 }
 
-/* 响应式设计 */
+/* 响应式设计 - 等比例缩放适配 */
 @media (max-width: 1200px) {
-    .learning-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* 保持布局不变，仅调整整体大小 */
+    html {
+        font-size: 14px;
     }
 }
 
 @media (max-width: 768px) {
-    /* 导航栏优化 */
+    /* 移动端等比例缩放，保持布局一致 */
+    html {
+        font-size: 13px;
+    }
+    
     .nav-container {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 0.8rem 1rem;
+        padding: 0.8rem 1.5rem;
     }
     
     .logo-area {
+        font-size: 1.3rem;
+    }
+    
+    .nav-menu {
+        gap: 1rem;
+    }
+    
+    .nav-item {
+        font-size: 0.95rem;
+    }
+    
+    /* 页面标题 Banner */
+    .page-banner {
+        margin-top: 75px;
+        padding: 3rem 1.5rem;
+    }
+    
+    .page-title {
+        font-size: 2.4rem;
+        letter-spacing: 5px;
+    }
+    
+    .page-subtitle {
         font-size: 1.2rem;
         letter-spacing: 2px;
     }
     
-    .nav-menu {
-        justify-content: center;
-        gap: 0.8rem;
-        flex-wrap: wrap;
-    }
-    
-    .nav-item {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.6rem;
-    }
-    
-    /* 页面标题 Banner 优化 */
-    .page-banner {
-        margin-top: 70px;
-        padding: 2.5rem 1rem;
-    }
-    
-    .page-title {
-        font-size: 2rem;
-        letter-spacing: 3px;
-        margin-bottom: 0.8rem;
-    }
-    
-    .page-subtitle {
-        font-size: 1.1rem;
-        letter-spacing: 2px;
-    }
-    
-    /* 分类导航标签优化 */
+    /* 分类导航标签 - 保持横向布局 */
     .category-nav {
-        top: 68px;
-        position: sticky;
-        z-index: 999;
+        top: 73px;
     }
     
     .category-list {
-        flex-direction: column;
-        gap: 0;
+        gap: 0.5rem;
     }
     
     .category-item {
-        min-width: 100%;
-        border-bottom: 1px solid rgba(54, 124, 142, 0.1);
+        min-width: 120px;
     }
     
     .category-link {
-        padding: 1rem 1.5rem;
+        padding: 1rem 1.2rem;
         font-size: 1rem;
-        letter-spacing: 1px;
     }
     
-    /* 内容板块优化 */
+    /* 内容板块 */
     .content-section {
-        padding: 3rem 1rem;
+        padding: 3.5rem 1.5rem;
     }
     
     .section-title-main {
-        font-size: 1.6rem;
+        font-size: 1.8rem;
         letter-spacing: 3px;
     }
     
     .section-desc {
         font-size: 0.95rem;
-        margin-top: 1rem;
     }
     
-    /* 内容卡片网格优化 */
+    /* 内容卡片网格 - 保持多列布局 */
     .content-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
-        margin-top: 1.5rem;
+    }
+    
+    .content-card {
+        border-radius: 10px;
+    }
+    
+    .card-header {
+        padding: 1.3rem;
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+    }
+    
+    .card-body {
+        padding: 1.3rem;
+    }
+    
+    .card-text {
+        font-size: 0.95rem;
+    }
+    
+    .card-text-en {
+        font-size: 0.95rem;
+    }
+    
+    /* 诗词卡片 */
+    .poem-title {
+        font-size: 1.2rem;
+    }
+    
+    .poem-content {
+        font-size: 1rem;
+    }
+    
+    .poem-translation {
+        font-size: 0.9rem;
+    }
+    
+    /* 学习拓展区 */
+    .learning-section {
+        padding: 3.5rem 1.5rem;
+    }
+    
+    .learning-grid {
+        gap: 1.5rem;
+    }
+    
+    .learning-box {
+        padding: 1.8rem;
+    }
+    
+    .learning-title {
+        font-size: 1.3rem;
+    }
+    
+    .learning-item {
+        font-size: 0.95rem;
+    }
+    
+    /* Footer */
+    .footer-info {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* 超小屏幕进一步缩小 */
+    html {
+        font-size: 12px;
+    }
+    
+    .nav-container {
+        padding: 0.6rem 1rem;
+    }
+    
+    .logo-area {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+    }
+    
+    .nav-menu {
+        gap: 0.6rem;
+    }
+    
+    .nav-item {
+        font-size: 0.85rem;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    /* 页面标题 Banner */
+    .page-banner {
+        margin-top: 65px;
+        padding: 2rem 1rem;
+    }
+    
+    .page-title {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+    }
+    
+    .page-subtitle {
+        font-size: 1rem;
+        letter-spacing: 2px;
+    }
+    
+    /* 分类导航标签 */
+    .category-nav {
+        top: 65px;
+    }
+    
+    .category-list {
+        gap: 0.3rem;
+    }
+    
+    .category-item {
+        min-width: 100px;
+    }
+    
+    .category-link {
+        padding: 0.8rem 1rem;
+        font-size: 0.9rem;
+    }
+    
+    /* 内容板块 */
+    .content-section {
+        padding: 3rem 1rem;
+    }
+    
+    .section-title-main {
+        font-size: 1.5rem;
+    }
+    
+    .section-desc {
+        font-size: 0.9rem;
+    }
+    
+    /* 内容卡片网格 */
+    .content-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.2rem;
     }
     
     .content-card {
@@ -482,49 +614,46 @@ body {
     }
     
     .card-header {
-        padding: 1.2rem;
+        padding: 1.1rem;
     }
     
     .card-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .card-body {
-        padding: 1.2rem;
+        padding: 1.1rem;
     }
     
     .card-text {
-        font-size: 0.95rem;
-        line-height: 1.7;
+        font-size: 0.9rem;
     }
     
     .card-text-en {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
     
-    /* 诗词卡片优化 */
+    /* 诗词卡片 */
     .poem-title {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .poem-content {
-        font-size: 1rem;
-        line-height: 1.8;
+        font-size: 0.95rem;
     }
     
     .poem-translation {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         padding: 0.8rem;
     }
     
-    /* 学习拓展区优化 */
+    /* 学习拓展区 */
     .learning-section {
         padding: 3rem 1rem;
     }
     
     .learning-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.2rem;
     }
     
     .learning-box {
@@ -532,51 +661,15 @@ body {
     }
     
     .learning-title {
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
+        font-size: 1.1rem;
     }
     
     .learning-item {
-        font-size: 0.95rem;
-        padding: 0.5rem 0;
+        font-size: 0.9rem;
     }
     
-    /* Footer 优化 */
+    /* Footer */
     .footer-info {
-        flex-direction: column;
-        gap: 0.8rem;
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 480px) {
-    /* 超小屏幕进一步优化 */
-    .logo-area {
-        font-size: 1.1rem;
-    }
-    
-    .nav-item {
-        font-size: 0.85rem;
-        padding: 0.25rem 0.5rem;
-    }
-    
-    .page-title {
-        font-size: 1.6rem;
-    }
-    
-    .page-subtitle {
-        font-size: 1rem;
-    }
-    
-    .section-title-main {
-        font-size: 1.4rem;
-    }
-    
-    .card-title {
-        font-size: 1.1rem;
-    }
-    
-    .content-card {
-        border-radius: 8px;
+        font-size: 0.8rem;
     }
 }
