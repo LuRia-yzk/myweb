@@ -135,15 +135,15 @@ body {
 
 /* Banner 区域 */
 .banner-section {
-    margin-top: 80px;
-    min-height: 650px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-    background: linear-gradient(180deg, var(--beige-bg) 0%, #fff 100%);
+    margin-top: 65px;
+    min-height: 1000px;
+    padding: 2rem 1rem;
+}
+
+.project-tag {
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    margin-bottom: 1.5rem;
 }
 
 /* 祥云背景装饰 */
@@ -176,8 +176,10 @@ body {
 .banner-content {
     position: relative;
     z-index: 1;
-    max-width: 900px;
+    max-width: 1000px;
+    margin: 0 auto;
     padding: 0 2rem;
+    text-align: center;
 }
 
 .project-tag {
@@ -192,22 +194,67 @@ body {
     border: 1px solid rgba(54, 124, 142, 0.3);
 }
 
-.main-title {
-    font-size: 4rem;
-    color: var(--china-red);
-    margin-bottom: 1rem;
+/* 桥形 Logo - 超大尺寸 */
+.bridge-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    margin: 0 auto 3rem;
+    position: relative;
+}
+
+.bridge-left,
+.bridge-right {
+    font-size: 5.2rem;
     font-weight: bold;
-    text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
-    letter-spacing: 8px;
-    line-height: 1.2;
+    color: var(--china-red);
+    letter-spacing: 12px;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 8px 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.bridge-arch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.bridge-top-text {
+    font-size: 4.2rem;
+    font-weight: bold;
+    color: var(--elegant-cyan);
+    letter-spacing: 22px;
+    margin-bottom: 2rem;
+    text-shadow: 8px 8px 25px rgba(0, 0, 0, 0.25);
+    white-space: nowrap;
+}
+
+.bridge-curve {
+    width: 640px;
+    height: 260px;
 }
 
 .sub-title {
-    font-size: 1.6rem;
+    font-size: 1.3rem;
     color: var(--text-dark);
-    margin-bottom: 2.5rem;
+    margin-bottom: 3rem;
     letter-spacing: 4px;
     font-weight: 400;
+    line-height: 1.6;
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.8rem;
 }
 
 .banner-actions {
@@ -219,8 +266,8 @@ body {
 
 .btn {
     display: inline-block;
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
     text-decoration: none;
     border-radius: 8px;
     transition: all 0.3s ease;
@@ -256,28 +303,28 @@ body {
 
 /* 五大文化核心入口 */
 .core-entries-section {
-    padding: 5rem 2rem;
-    max-width: 1400px;
+    padding: 4rem 2rem 6rem;
+    max-width: 1800px;
     margin: 0 auto;
 }
 
 .entry-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 2rem;
+    gap: 4rem;
 }
 
 .culture-card {
     background: #ffffff;
-    border: 2px solid var(--elegant-cyan);
-    border-radius: 12px;
-    padding: 2.5rem 1.5rem;
+    border: 3px solid var(--elegant-cyan);
+    border-radius: 16px;
+    padding: 4rem 2.5rem;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     text-decoration: none;
 }
 
@@ -287,40 +334,40 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 4px;
+    height: 5px;
     background: var(--elegant-cyan);
     transition: all 0.3s;
 }
 
 .culture-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    transform: translateY(-10px);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.15);
 }
 
 .culture-card:hover::before {
-    height: 6px;
-    background: var(--china-red);
+    height: 7px;
 }
 
 .culture-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     color: var(--text-dark);
     font-weight: 600;
-    letter-spacing: 2px;
-    line-height: 1.6;
+    line-height: 1.7;
+    letter-spacing: 3px;
 }
 
 .culture-card.highlight {
-    background: linear-gradient(135deg, var(--china-red), #b5302f);
     border-color: var(--china-red);
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.05), rgba(248, 245, 240, 0.6));
 }
 
 .culture-card.highlight h3 {
-    color: var(--text-light);
+    color: var(--china-red);
+    font-weight: 700;
 }
 
 .culture-card.highlight::before {
-    background: var(--text-light);
+    background: var(--china-red);
 }
 
 /* 文化精选区 */
@@ -521,18 +568,40 @@ body {
         padding: 2rem 1.5rem;
     }
     
-    .main-title {
-        font-size: 3rem;
-        letter-spacing: 6px;
+    .project-tag {
+        margin-bottom: 1.5rem;
+    }
+    
+    .bridge-logo {
+        gap: 1.5rem;
+        margin: 0 auto 2rem;
+    }
+    
+    .bridge-left,
+    .bridge-right {
+        font-size: 1.8rem;
+        height: 150px;
+        letter-spacing: 5px;
+    }
+    
+    .bridge-arch {
+        padding: 0 0.5rem;
+    }
+    
+    .bridge-top-text {
+        font-size: 1.5rem;
+        letter-spacing: 8px;
+        margin-bottom: 0.8rem;
+    }
+    
+    .bridge-curve {
+        width: 200px;
+        height: 90px;
     }
     
     .sub-title {
         font-size: 1.4rem;
         letter-spacing: 3px;
-    }
-    
-    .project-tag {
-        font-size: 0.85rem;
     }
     
     .btn {
@@ -542,7 +611,7 @@ body {
     
     /* 五大文化核心入口 */
     .core-entries-section {
-        padding: 4rem 1.5rem;
+        padding: 2rem 1.5rem 4rem;
     }
     
     .entry-grid {
@@ -615,19 +684,42 @@ body {
         padding: 1.5rem 1rem;
     }
     
-    .main-title {
-        font-size: 2.2rem;
+    .project-tag {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .bridge-logo {
+        gap: 1rem;
+        margin: 0 auto 1.5rem;
+    }
+    
+    .bridge-left,
+    .bridge-right {
+        font-size: 1.5rem;
+        height: 120px;
         letter-spacing: 4px;
+    }
+    
+    .bridge-arch {
+        padding: 0 0.3rem;
+    }
+    
+    .bridge-top-text {
+        font-size: 1.3rem;
+        letter-spacing: 6px;
+        margin-bottom: 0.6rem;
+    }
+    
+    .bridge-curve {
+        width: 160px;
+        height: 70px;
     }
     
     .sub-title {
         font-size: 1.1rem;
         letter-spacing: 2px;
-    }
-    
-    .project-tag {
-        font-size: 0.75rem;
-        padding: 0.35rem 0.8rem;
     }
     
     .btn {
@@ -637,7 +729,7 @@ body {
     
     /* 五大文化核心入口 */
     .core-entries-section {
-        padding: 3rem 1rem;
+        padding: 1.5rem 1rem 3rem;
     }
     
     .entry-grid {
