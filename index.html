@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>文润英教 数育新人 - 惠州英语文化育人平台</title>
-    <link rel="stylesheet" href="css/index.css?v=20260321">
+    <title>以英语传中华文化、以文化育时代新质人 - 惠州英语文化育人平台</title>
+    <link rel="stylesheet" href="css/index.css?v=20260329055">
 </head>
 <body>
     <!-- 顶部固定导航 -->
@@ -19,21 +19,48 @@
                 <a href="traditional-culture.html" class="nav-item">中华优秀传统文化</a>
                 <a href="red-culture.html" class="nav-item">中国红色文化</a>
                 <a href="contemporary-culture.html" class="nav-item">中国当代文化</a>
-                <a href="local-culture.html" class="nav-item">惠州本土文化</a>
+                <a href="local-culture.html" class="nav-item active">惠州本土文化</a>
+                <a href="heroes.html" class="nav-item highlight">古今英雄人物</a>
                 <a href="resource-library.html" class="nav-item">文化育人资源库</a>
                 <a href="project-about.html" class="nav-item">项目介绍</a>
+                
+                <!-- 搜索框 -->
+                <div class="search-box">
+                    <input type="text" placeholder="搜索资源..." class="search-input" id="searchInput">
+                    <button class="search-btn" id="searchBtn">🔍</button>
+                </div>
             </nav>
         </div>
     </header>
 
     <!-- 首屏 Banner -->
     <section class="banner-section">
-        <div class="dongpo-silhouette"></div>
+        <!-- 惠州元素底图 -->
+        <div class="huizhou-bg">
+            <svg class="huizhou-lineart" viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid slice">
+                <!-- 西湖轮廓 -->
+                <path class="west-lake" d="M 100 300 Q 200 280 300 300 T 500 300" 
+                      stroke="#367C8E" stroke-width="2" fill="none" opacity="0.3"/>
+                <!-- 客家围屋轮廓 -->
+                <rect class="hakka-house" x="600" y="250" width="150" height="80" 
+                      stroke="#C93736" stroke-width="2" fill="none" opacity="0.3"/>
+                <!-- 罗浮山轮廓 -->
+                <path class="luofu-mountain" d="M 800 300 L 900 200 L 1000 300" 
+                      stroke="#5A7D5A" stroke-width="2" fill="none" opacity="0.3"/>
+            </svg>
+        </div>
+        
+        <!-- 渐变背景层 -->
+        <div class="gradient-overlay"></div>
+        
         <div class="banner-content">
-            <!-- 项目标签移到最上方 -->
-            <div class="project-tag">惠州市哲社重点项目 HZSK2024ZD001</div>
+            <!-- 项目标签 -->
+            <div class="project-tag">
+                <span class="project-code">惠州市哲社重点项目 HZSK2024ZD003</span>
+                <span class="project-unit">惠州学院外语学科研发</span>
+            </div>
             
-            <!-- 桥形 Logo - 去掉背景框 -->
+            <!-- 桥形 Logo -->
             <div class="bridge-logo">
                 <div class="bridge-left">文化英教</div>
                 <div class="bridge-arch">
@@ -46,73 +73,279 @@
                 <div class="bridge-right">为国育才</div>
             </div>
             
-            <p class="sub-title">以英语传中华文化·以文化育时代新人</p>
+            <!-- 主标语 -->
+            <h1 class="main-slogan">以英语传中华文化·以文化育时代新质人</h1>
+            
+            <!-- 辅助标语 -->
+            <div class="auxiliary-slogans">
+                <span>数字搭桥</span>
+                <span>文化英教</span>
+                <span>为国育才</span>
+            </div>
+            
+            <!-- 行动按钮 -->
             <div class="banner-actions">
-                <a href="#" class="btn btn-primary">进入文化学习</a>
-                <a href="#" class="btn btn-secondary">查看育人资源</a>
+                <a href="#culture-learning" class="btn btn-primary">进入文化学习</a>
+                <a href="resource-library.html" class="btn btn-secondary">查看育人资源</a>
             </div>
         </div>
     </section>
 
-    <!-- 五大文化核心入口 -->
-    <section class="core-entries-section">
-        <div class="entry-grid">
-            <a href="traditional-culture.html" class="culture-card">
-                <h3>中华优秀传统文化</h3>
-            </a>
-            <a href="red-culture.html" class="culture-card">
-                <h3>中国红色文化</h3>
-            </a>
-            <a href="contemporary-culture.html" class="culture-card">
-                <h3>中国当代文化</h3>
-            </a>
-            <a href="local-culture.html" class="culture-card">
-                <h3>惠州本土文化</h3>
-            </a>
-            <a href="resource-library.html" class="culture-card highlight">
-                <h3>文化育人资源库</h3>
-            </a>
+    <!-- 惠州本土文化置顶推荐区 -->
+    <section class="huizhou-featured">
+        <div class="container">
+            <div class="huizhou-header">
+                <div class="huizhou-badge">🌺</div>
+                <h2 class="huizhou-title">惠州本土文化</h2>
+                <p class="huizhou-subtitle">Huizhou Local Culture · 平台特色板块</p>
+                <a href="local-culture.html" class="btn-huizhou">探索惠州文化 →</a>
+            </div>
+            
+            <div class="huizhou-carousel">
+                <!-- 卡片 1：客家围屋 -->
+                <div class="huizhou-card featured">
+                    <div class="card-image hakka-house-img">
+                        <div class="image-placeholder">
+                            <span class="icon">🏯</span>
+                            <span class="label">客家围屋</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>客家围屋文化</h3>
+                        <p>Hakka Walled Village</p>
+                        <p class="desc">岭南客家文化的活化石，集居住、防御、祭祀于一体</p>
+                        <div class="tags">
+                            <span class="tag">非遗</span>
+                            <span class="tag">建筑</span>
+                            <span class="tag">家族文化</span>
+                        </div>
+                        <a href="local-culture.html#hakka-house" class="btn-learn">了解详情</a>
+                    </div>
+                </div>
+                
+                <!-- 卡片 2：惠州西湖 -->
+                <div class="huizhou-card">
+                    <div class="card-image west-lake-img">
+                        <div class="image-placeholder">
+                            <span class="icon">🏞️</span>
+                            <span class="label">惠州西湖</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>惠州西湖</h3>
+                        <p>West Lake of Huizhou</p>
+                        <p class="desc">岭南明珠，苏东坡曾在此留下千古佳话</p>
+                        <div class="tags">
+                            <span class="tag">景点</span>
+                            <span class="tag">诗词</span>
+                            <span class="tag">历史文化</span>
+                        </div>
+                        <a href="local-culture.html#west-lake" class="btn-learn">了解详情</a>
+                    </div>
+                </div>
+                
+                <!-- 卡片 3：东江纵队 -->
+                <div class="huizhou-card">
+                    <div class="card-image dongjiang-img">
+                        <div class="image-placeholder">
+                            <span class="icon">⭐</span>
+                            <span class="label">东江纵队</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>东江纵队红色文化</h3>
+                        <p>Dongjiang Column</p>
+                        <p class="desc">抗日战争时期的英雄部队，革命精神的象征</p>
+                        <div class="tags">
+                            <span class="tag">红色</span>
+                            <span class="tag">革命</span>
+                            <span class="tag">英雄事迹</span>
+                        </div>
+                        <a href="local-culture.html#dongjiang" class="btn-learn">了解详情</a>
+                    </div>
+                </div>
+                
+                <!-- 卡片 4：惠州非遗 -->
+                <div class="huizhou-card">
+                    <div class="card-image heritage-img">
+                        <div class="image-placeholder">
+                            <span class="icon">🎨</span>
+                            <span class="label">惠州非遗</span>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3>惠州非物质文化遗产</h3>
+                        <p>Intangible Heritageage</p>
+                        <p class="desc">龙门农民画、惠东渔歌等珍贵文化遗产</p>
+                        <div class="tags">
+                            <span class="tag">非遗</span>
+                            <span class="tag">民俗</span>
+                            <span class="tag">传统技艺</span>
+                        </div>
+                        <a href="local-culture.html#heritage" class="btn-learn">了解详情</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- 文化精选区 -->
-    <section class="selection-section">
+    <!-- 文化精选模块 -->
+    <section class="culture-highlights" id="culture-learning">
         <div class="container">
             <h2 class="section-title">文化精选</h2>
-            <div class="selection-grid">
-                <div class="selection-item">
-                    <h4>每日一句</h4>
-                    <p>中国文化英语经典表达</p>
+            <p class="section-subtitle">Cultural Highlights</p>
+            
+            <div class="highlights-grid">
+                <!-- 每日一句 -->
+                <div class="highlight-card daily-quote">
+                    <div class="card-header">
+                        <span class="card-icon">📖</span>
+                        <h3>每日一句</h3>
+                        <span class="card-label">Daily Quote</span>
+                    </div>
+                    <div class="card-content">
+                        <blockquote class="quote-text">
+                            "和而不同，美美与共。"
+                        </blockquote>
+                        <p class="quote-english">
+                            "Harmony in diversity, beauty shared together."
+                        </p>
+                        <p class="quote-explanation">
+                            出自《论语》，强调多元文化的和谐共存。
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="resource-library.html#daily-quote" class="btn-more">查看更多 →</a>
+                    </div>
                 </div>
-                <div class="selection-item">
-                    <h4>每周一课</h4>
-                    <p>中国文化英语学习素材</p>
+                
+                <!-- 每周一课 -->
+                <div class="highlight-card weekly-lesson">
+                    <div class="card-header">
+                        <span class="card-icon">🎓</span>
+                        <h3>每周一课</h3>
+                        <span class="card-label">Weekly Lesson</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="lesson-segments">
+                            <span class="segment-tag primary">小学</span>
+                            <span class="segment-tag junior">初中</span>
+                            <span class="segment-tag senior">高中</span>
+                            <span class="segment-tag university">大学</span>
+                        </div>
+                        <h4 class="lesson-title">惠州客家围屋的文化内涵</h4>
+                        <p class="lesson-desc">
+                            通过英语介绍客家围屋的建筑特色与家族文化，培养学生的乡土认同与文化自信。
+                        </p>
+                        <div class="lesson-meta">
+                            <span class="difficulty">难度：⭐⭐⭐</span>
+                            <span class="duration">时长：15 分钟</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="local-culture.html#hakka-house" class="btn-more">开始学习 →</a>
+                    </div>
                 </div>
-                <div class="selection-item">
-                    <h4>文化推荐</h4>
-                    <p>传统经典/红色故事/本土特色</p>
+                
+                <!-- 文化推荐 -->
+                <div class="highlight-card culture-recommend">
+                    <div class="card-header">
+                        <span class="card-icon">🌟</span>
+                        <h3>文化推荐</h3>
+                        <span class="card-label">Recommended Culture</span>
+                    </div>
+                    <div class="card-content">
+                        <div class="recommend-categories">
+                            <a href="traditional-culture.html" class="category-item">
+                                <div class="category-thumb traditional">传统经典</div>
+                                <h4>传统经典</h4>
+                                <p>儒家思想、诗词歌赋</p>
+                            </a>
+                            <a href="red-culture.html" class="category-item">
+                                <div class="category-thumb red">红色故事</div>
+                                <h4>红色故事</h4>
+                                <p>革命历史、英雄事迹</p>
+                            </a>
+                            <a href="local-culture.html" class="category-item">
+                                <div class="category-thumb local">惠州本土特色</div>
+                                <h4>惠州本土特色</h4>
+                                <p>非遗文化、人文景点</p>
+                            </a>
+                            <a href="contemporary-culture.html" class="category-item">
+                                <div class="category-thumb bay">湾区文化融合</div>
+                                <h4>湾区文化融合</h4>
+                                <p>粤港澳文化交流</p>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="resource-library.html" class="btn-more">探索更多 →</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 平台理念区 -->
-    <section class="concept-section">
+    <!-- 底部辅助区 -->
+    <footer class="site-footer" id="resource-library">
         <div class="container">
-            <h2 class="section-title">平台理念</h2>
-            <p class="concept-text">聚合中国文化英语资源，服务惠州大中小学英语文化育人</p>
-        </div>
-    </section>
-
-    <!-- 底部Footer -->
-    <footer class="site-footer">
-        <div class="footer-info">
-            <span>项目编号：HZSK2024ZD001</span>
-            <span>© 惠州英语文化育人平台</span>
-            <a href="#" class="footer-link">联系我们</a>
+            <!-- 平台使用指南 -->
+            <div class="guide-section">
+                <div class="guide-icon">📖</div>
+                <h3>平台使用指南</h3>
+                <div class="guide-links">
+                    <a href="project-about.html#guide" class="guide-link">快速入门</a>
+                    <span class="guide-separator">|</span>
+                    <a href="resource-library.html#search" class="guide-link">资源检索</a>
+                    <span class="guide-separator">|</span>
+                    <a href="project-about.html#download" class="guide-link">下载指引</a>
+                    <span class="guide-separator">|</span>
+                    <a href="project-about.html#teaching" class="guide-link">教学提示</a>
+                </div>
+                <p class="guide-desc">快速了解平台核心功能和使用方法，让教学更高效</p>
+            </div>
+            
+            <!-- 资源更新公告 -->
+            <div class="update-section">
+                <div class="update-icon">📢</div>
+                <h3>资源更新公告</h3>
+                <div class="update-list">
+                    <div class="update-item">
+                        <span class="update-tag new">NEW</span>
+                        <span class="update-text">本周更新：惠州红色故事双语素材 6 篇</span>
+                        <span class="update-date">2024-03-25</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-tag new">NEW</span>
+                        <span class="update-text">新增惠州剪纸非遗文化资源包</span>
+                        <span class="update-date">2024-03-20</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="update-text">更新东江纵队红色故事双语素材</span>
+                        <span class="update-date">2024-03-15</span>
+                    </div>
+                    <a href="resource-library.html#notices" class="view-all-updates">查看全部更新 →</a>
+                </div>
+            </div>
+            
+            <!-- 需求征集 -->
+            <div class="feedback-section">
+                <div class="feedback-icon">💡</div>
+                <h3>需求征集入口</h3>
+                <p class="feedback-desc">欢迎提出您的资源需求建议，我们将根据师生反馈持续优化平台内容！</p>
+                <div class="feedback-actions">
+                    <a href="project-about.html#feedback" class="btn-feedback-primary">提交需求建议</a>
+                    <a href="mailto:huizhou_english_edu@example.com" class="btn-feedback-secondary">发送邮件至官方邮箱</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 惠州英语文化育人平台 | 惠州市哲学社会科学规划课题 HZSK2024ZD003</p>
+                <p>惠州学院外语学科研发 | 技术支持：现代教育技术中心</p>
+            </div>
         </div>
     </footer>
 
-    <script src="js/index.js"></script>
+    <script src="js/index.js?v=20260329060"></script>
 </body>
 </html>

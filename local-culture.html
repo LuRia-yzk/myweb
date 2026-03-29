@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>惠州本土文化 · 英语特色专区 - 惠州英语文化育人平台</title>
-    <link rel="stylesheet" href="css/local-culture.css?v=20260322">
+    <link rel="stylesheet" href="css/local-culture.css?v=20260329080">
 </head>
 <body>
     <!-- 顶部固定导航 -->
@@ -19,9 +19,16 @@
                 <a href="traditional-culture.html" class="nav-item">中华优秀传统文化</a>
                 <a href="red-culture.html" class="nav-item">中国红色文化</a>
                 <a href="contemporary-culture.html" class="nav-item">中国当代文化</a>
-                <a href="local-culture.html" class="nav-item">惠州本土文化</a>
+                <a href="local-culture.html" class="nav-item active">惠州本土文化</a>
+                <a href="heroes.html" class="nav-item highlight">古今英雄人物</a>
                 <a href="resource-library.html" class="nav-item">文化育人资源库</a>
                 <a href="project-about.html" class="nav-item">项目介绍</a>
+                
+                <!-- 搜索框 -->
+                <div class="search-box">
+                    <input type="text" placeholder="搜索资源..." class="search-input" id="searchInput">
+                    <button class="search-btn" id="searchBtn">🔍</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -36,343 +43,297 @@
     <nav class="category-nav">
         <ul class="category-list">
             <li class="category-item">
-                <a href="#dongpo" class="category-link active">东坡文化</a>
+                <a href="#intangible-heritage" class="category-link active">非遗文化</a>
             </li>
             <li class="category-item">
-                <a href="#hakka" class="category-link">客家文化</a>
+                <a href="#cultural-sites" class="category-link">人文景点</a>
             </li>
             <li class="category-item">
-                <a href="#dongjiang" class="category-link">东江红色文化</a>
+                <a href="#red-stories" class="category-link">红色故事</a>
             </li>
             <li class="category-item">
-                <a href="#westlake" class="category-link">西湖岭南文化</a>
+                <a href="#famous-people" class="category-link">名人传记</a>
             </li>
             <li class="category-item">
-                <a href="#extension" class="category-link">本土拓展区</a>
+                <a href="#bay-integration" class="category-link">湾区文化融合</a>
             </li>
         </ul>
     </nav>
 
-    <!-- 东坡文化板块 -->
-    <section id="dongpo" class="content-section">
+    <!-- 非遗文化板块 -->
+    <section id="intangible-heritage" class="content-section">
         <div class="container">
-            <h2 class="section-title">东坡文化 · Dongpo Culture</h2>
-            <p class="section-intro">苏轼寓惠事迹与诗词英译</p>
+            <h2 class="section-title">非遗文化 · Intangible Cultural Heritage</h2>
+            <p class="section-intro">惠州非物质文化遗产英文介绍</p>
+            
+            <!-- 文化背景小科普 -->
+            <div class="culture-tip-box">
+                <div class="tip-icon">💡</div>
+                <div class="tip-content">
+                    <h4>文化小科普 | Cultural Background</h4>
+                    <p><strong>惠州非遗概览：</strong>惠州拥有丰富的非物质文化遗产，包括龙门农民画、惠东渔歌、客家山歌等。这些非遗项目承载着惠州人民的历史记忆和文化基因，是岭南文化的重要组成部分。</p>
+                    <p><strong>Huizhou Heritage Overview:</strong> Huizhou boasts rich intangible cultural heritage, including Longmen Farmer Paintings, Huidong Fishing Songs, Hakka Mountain Songs, etc. These heritage items carry the historical memory and cultural genes of Huizhou people and are an important part of Lingnan culture.</p>
+                </div>
+            </div>
             
             <div class="content-grid">
                 <div class="content-card">
-                    <h3>苏轼寓惠简介</h3>
-                    <p class="english-text">Introduction to Su Shi in Huizhou</p>
-                    <p>北宋文学家苏轼于绍圣元年（1094 年）被贬至惠州，在惠期间三年零九个月。他关心民生疾苦，推广农业技术，兴办教育，对惠州文化发展影响深远。</p>
-                    <p class="english-text">Su Shi, a renowned literary master of the Northern Song Dynasty, was exiled to Huizhou in 1094. During his three years and nine months here, he cared deeply about people's hardships, promoted agricultural techniques, and established schools, profoundly influencing Huizhou's cultural development.</p>
-                </div>
-                
-                <div class="content-card">
-                    <h3>东坡诗词英译</h3>
-                    <p class="english-text">English Translation of Dongpo's Poems</p>
-                    <div class="poem-block">
-                        <p class="chinese-poem">《惠州一绝》</p>
-                        <p class="chinese-poem">罗浮山下四时春，</p>
-                        <p class="chinese-poem">卢橘杨梅次第新。</p>
-                        <p class="chinese-poem">日啖荔枝三百颗，</p>
-                        <p class="chinese-poem">不辞长作岭南人。</p>
-                        <hr class="poem-divider">
-                        <p class="english-poem">"A Poem About Huizhou"</p>
-                        <p class="english-poem">Below Mount Luofu, spring lasts all year round,</p>
-                        <p class="english-poem">Golden oranges and bayberries fresh in turn found.</p>
-                        <p class="english-poem">Three hundred lychees daily I would eat,</p>
-                        <p class="english-poem">To dwell in Lingnan forever I'd not retreat.</p>
+                    <h3>龙门农民画</h3>
+                    <p class="english-text">Longmen Farmer Paintings</p>
+                    <p>龙门农民画是惠州龙门县的传统民间艺术，起源于明代，以质朴的笔触、鲜艳的色彩描绘农村生活场景，被誉为"东方民间艺术奇葩"。</p>
+                    <p class="english-text">Longmen Farmer Paintings are a traditional folk art in Longmen County, Huizhou, originating from the Ming Dynasty. With simple brushstrokes and bright colors, they depict rural life scenes and are praised as "a unique gem of Oriental folk art."</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>初中英语阅读课</strong>，可作为<strong>文化对比写作素材</strong>，引导学生用英语介绍中国民间艺术。</span>
                     </div>
                 </div>
                 
                 <div class="content-card">
-                    <h3>东坡遗迹</h3>
-                    <p class="english-text">Dongpo Historical Sites</p>
-                    <ul class="culture-list">
-                        <li>
-                            <strong>东坡祠</strong>
-                            <p>Dongpo Memorial Temple: Built in memory of Su Shi during Ming Dynasty</p>
-                        </li>
-                        <li>
-                            <strong>合江楼</strong>
-                            <p>Hejiang Tower: Where Su Shi once resided and composed poems</p>
-                        </li>
-                        <li>
-                            <strong>苏堤玩月</strong>
-                            <p>Sudi Causeway: Su Shi led the construction of this lakeside walkway</p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 客家文化板块 -->
-    <section id="hakka" class="content-section">
-        <div class="container">
-            <h2 class="section-title">客家文化 · Hakka Culture</h2>
-            <p class="section-intro">客家围屋与民俗风情英文介绍</p>
-            
-            <div class="content-grid">
-                <div class="content-card">
-                    <h3>客家围屋建筑</h3>
-                    <p class="english-text">Hakka Walled Village Architecture</p>
-                    <p>客家围屋是客家人独特的民居建筑形式，集防御、居住、祭祀功能于一体，体现了客家人的家族观念和团结精神。</p>
-                    <p class="english-text">Hakka walled villages are unique residential architecture that integrates defense, living, and sacrificial functions, reflecting the family values and unity spirit of Hakka people.</p>
+                    <h3>惠东渔歌</h3>
+                    <p class="english-text">Huidong Fishing Songs</p>
+                    <p>惠东渔歌是惠东沿海渔民世代传唱的传统民歌，内容涵盖捕鱼、生活、爱情等主题，旋律优美，歌词朴实，是国家级非物质文化遗产。</p>
+                    <p class="english-text">Huidong Fishing Songs are traditional folk songs sung by fishermen in Huidong coastal areas for generations. The songs cover themes such as fishing, life, and love, with beautiful melodies and simple lyrics. They are a national intangible cultural heritage.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>高中英语听说课</strong>，可作为<strong>民俗文化口语表达素材</strong>，让学生学习用英语讲述中国民间音乐故事。</span>
+                    </div>
                 </div>
                 
                 <div class="content-card">
-                    <h3>客家民俗活动</h3>
-                    <p class="english-text">Hakka Folk Activities</p>
-                    <ul class="culture-list">
-                        <li>
-                            <strong>舞龙舞狮</strong>
-                            <p>Dragon and Lion Dance: Traditional performance during festivals</p>
-                        </li>
-                        <li>
-                            <strong>客家山歌</strong>
-                            <p>Hakka Mountain Songs: Folk songs expressing love and life</p>
-                        </li>
-                        <li>
-                            <strong>酿豆腐制作</strong>
-                            <p>Making Stuffed Tofu: Traditional culinary skill inheritance</p>
-                        </li>
-                        <li>
-                            <strong>祭祖仪式</strong>
-                            <p>Ancestor Worship Ceremony: Honoring ancestors with traditional rituals</p>
-                        </li>
-                    </ul>
-                </div>
-                
-                <div class="content-card">
-                    <h3>客家饮食文化</h3>
-                    <p class="english-text">Hakka Culinary Culture</p>
-                    <div class="food-grid">
-                        <div class="food-item">
-                            <h4>盐焗鸡</h4>
-                            <p>Salt-Baked Chicken</p>
-                        </div>
-                        <div class="food-item">
-                            <h4>梅菜扣肉</h4>
-                            <p>Braised Pork with Preserved Vegetables</p>
-                        </div>
-                        <div class="food-item">
-                            <h4>酿苦瓜</h4>
-                            <p>Stuffed Bitter Melon</p>
-                        </div>
-                        <div class="food-item">
-                            <h4>艾粄</h4>
-                            <p>Ai Ban (Mugwort Rice Cake)</p>
-                        </div>
+                    <h3>客家山歌</h3>
+                    <p class="english-text">Hakka Mountain Songs</p>
+                    <p>客家山歌是客家人在山区劳动生活中创作的山歌，内容广泛，形式多样，是客家文化的重要载体，表达了客家人对生活的热爱和对美好未来的向往。</p>
+                    <p class="english-text">Hakka Mountain Songs are folk songs created by Hakka people during their labor and life in mountainous areas. With extensive content and diverse forms, they are an important carrier of Hakka culture, expressing Hakka people's love for life and yearning for a better future.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>小学高年级英语拓展课</strong>，可作为<strong>民族文化启蒙素材</strong>，培养学生对本土文化的兴趣和认同感。</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 东江红色文化板块 -->
-    <section id="dongjiang" class="content-section">
+    <!-- 人文景点板块 -->
+    <section id="cultural-sites" class="content-section">
         <div class="container">
-            <h2 class="section-title">东江红色文化 · Dongjiang Red Culture</h2>
-            <p class="section-intro">东江纵队革命历史英文讲解</p>
+            <h2 class="section-title">人文景点 · Cultural Sites</h2>
+            <p class="section-intro">惠州历史人文景点英文讲解</p>
+            
+            <!-- 文化背景小科普 -->
+            <div class="culture-tip-box">
+                <div class="tip-icon">🏛️</div>
+                <div class="tip-content">
+                    <h4>文化小科普 | Cultural Background</h4>
+                    <p><strong>惠州历史沿革：</strong>惠州是国家历史文化名城，已有 1400 多年历史。自古以来就是东江流域的政治、经济、文化中心，素有"岭东雄郡"之称。苏东坡、文天祥等历史名人都曾在此留下足迹。</p>
+                    <p><strong>Huizhou History:</strong> Huizhou is a national historical and cultural city with over 1,400 years of history. It has been the political, economic, and cultural center of the Dongjiang River basin since ancient times, known as "the eastern ridge commandery." Historical figures such as Su Shi and Wen Tianxiang have left their footprints here.</p>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>惠州西湖</h3>
+                    <p class="english-text">West Lake of Huizhou</p>
+                    <p>惠州西湖是国家 5A 级旅游景区，与杭州西湖、颍州西湖并称为"中国三大西湖"。湖光山色秀丽，人文景观丰富，苏东坡曾在此留下"一自坡公谪南海，天下不敢小惠州"的千古名句。</p>
+                    <p class="english-text">West Lake of Huizhou is a national 5A tourist attraction, together with Hangzhou West Lake and Yingzhou West Lake, known as "China's Three West Lakes." It features beautiful lake and mountain scenery and rich cultural landscapes. Su Shi once left the famous verse here: "Since Master Su was exiled to Nanhai, no one dares to underestimate Huizhou."</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>初中英语阅读与写作课</strong>，可作为<strong>景点介绍写作模板</strong>，让学生学习用英语描述家乡美景。</span>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>东坡祠</h3>
+                    <p class="english-text">Dongpo Memorial Temple</p>
+                    <p>东坡祠位于惠州市区，是为纪念北宋文学家苏轼而建的祠堂。苏轼于绍圣元年被贬惠州，在此居住三年零九个月，留下了众多诗词和文化遗产。</p>
+                    <p class="english-text">Dongpo Memorial Temple is located in Huizhou urban area, built in memory of Su Shi, a literary master of the Northern Song Dynasty. Su Shi was exiled to Huizhou in 1094 and lived here for three years and nine months, leaving numerous poems and cultural heritage.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>高中英语文化课</strong>，可作为<strong>历史人物专题素材</strong>，结合东坡诗词英译进行跨文化教学。</span>
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>巽寮湾</h3>
+                    <p class="english-text">Xunliao Bay</p>
+                    <p>巽寮湾位于惠东县，是粤东地区著名的滨海旅游度假区，拥有优质的海滩和独特的渔家文化。这里的渔民保留着传统的捕鱼方式和渔歌习俗。</p>
+                    <p class="english-text">Xunliao Bay is located in Huidong County and is a famous coastal tourism resort in eastern Guangdong. It has high-quality beaches and unique fishing culture. The fishermen here retain traditional fishing methods and fishing song customs.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>初中英语听说课</strong>，可作为<strong>旅游文化口语素材</strong>，让学生学习用英语介绍旅游景点和民俗文化。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 红色故事板块 -->
+    <section id="red-stories" class="content-section">
+        <div class="container">
+            <h2 class="section-title">红色故事 · Red Stories</h2>
+            <p class="section-intro">惠州红色文化英雄事迹英文讲述</p>
+            
+            <!-- 文化背景小科普 -->
+            <div class="culture-tip-box">
+                <div class="tip-icon">⭐</div>
+                <div class="tip-content">
+                    <h4>文化小科普 | Cultural Background</h4>
+                    <p><strong>东江纵队历史地位：</strong>东江纵队是抗日战争时期中国共产党在华南地区领导的一支重要抗日武装，战斗在东江流域，为华南抗战作出了重大贡献。惠州是东江纵队的重要活动区域，留下了众多革命遗址和英雄事迹。</p>
+                    <p><strong>Historical Status of Dongjiang Column:</strong> The Dongjiang Column was an important anti-Japanese armed force led by the Communist Party of China in South China during the War of Resistance Against Japanese Aggression. It fought in the Dongjiang River basin and made significant contributions to the resistance in South China. Huizhou was an important activity area of the Dongjiang Column, leaving many revolutionary sites and heroic deeds.</p>
+                </div>
+            </div>
             
             <div class="content-grid">
                 <div class="content-card highlight-card">
                     <h3>东江纵队简介</h3>
                     <p class="english-text">Introduction to Dongjiang Column</p>
-                    <p>东江纵队是抗日战争时期中国共产党领导的一支重要抗日武装力量，成立于 1943 年，战斗在东江流域，为华南抗战作出了重大贡献。</p>
-                    <p class="english-text">The Dongjiang Column was an important anti-Japanese armed force led by the Communist Party of China during the War of Resistance Against Japanese Aggression. Established in 1943, it fought in the Dongjiang River basin and made significant contributions to the resistance in South China.</p>
+                    <p>东江纵队成立于 1943 年，是抗日战争时期中国共产党领导的一支重要抗日武装力量。纵队战斗在东江流域，开展游击战争，建立抗日根据地，为华南抗战作出了重大贡献。</p>
+                    <p class="english-text">The Dongjiang Column was established in 1943 and was an important anti-Japanese armed force led by the Communist Party of China during the War of Resistance Against Japanese Aggression. The column fought in the Dongjiang River basin, carried out guerrilla warfare, established anti-Japanese base areas, and made significant contributions to the resistance in South China.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>高中英语阅读课</strong>，可作为<strong>爱国主义教育素材</strong>，培养学生的家国情怀和历史责任感。</span>
+                    </div>
                 </div>
                 
                 <div class="content-card">
-                    <h3>革命历史遗址</h3>
-                    <p class="english-text">Revolutionary Historical Sites</p>
-                    <ul class="culture-list">
-                        <li>
-                            <strong>东江纵队司令部旧址</strong>
-                            <p>Former Site of Dongjiang Column Headquarters: Located in Kuiyong, Shenzhen</p>
-                        </li>
-                        <li>
-                            <strong>土洋会议旧址</strong>
-                            <p>Former Site of Tuyang Conference: Important strategic decision-making location</p>
-                        </li>
-                        <li>
-                            <strong>东江纵队纪念馆</strong>
-                            <p>Dongjiang Column Memorial Hall: Exhibits historical relics and documents</p>
-                        </li>
-                    </ul>
+                    <h3>曾生将军</h3>
+                    <p class="english-text">General Zeng Sheng</p>
+                    <p>曾生（1910-1995），广东惠阳人，东江纵队的主要创建人和领导人之一。他率领东江纵队在抗日战争中英勇作战，为华南地区的抗日斗争作出了重要贡献。</p>
+                    <p class="english-text">Zeng Sheng (1910-1995), a native of Huiyang, Guangdong, was one of the main founders and leaders of the Dongjiang Column. He led the Dongjiang Column to fight bravely in the War of Resistance Against Japanese Aggression and made important contributions to the anti-Japanese struggle in South China.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>初中英语人物传记阅读课</strong>，可作为<strong>英雄人物专题素材</strong>，引导学生学习英雄精神，树立远大理想。</span>
+                    </div>
                 </div>
                 
                 <div class="content-card">
-                    <h3>红色故事</h3>
-                    <p class="english-text">Red Stories</p>
-                    <div class="story-block">
-                        <h4>营救文化名人</h4>
-                        <p class="english-text">Rescuing Cultural Celebrities</p>
-                        <p>1942 年，东江纵队成功营救了数百名被困在香港的文化界人士，包括茅盾、邹韬奋等，这次秘密大营救被称为"中国文化史上的奇迹"。</p>
-                        <p class="english-text">In 1942, the Dongjiang Column successfully rescued hundreds of cultural figures trapped in Hong Kong, including Mao Dun and Zou Taofen. This secret rescue operation was hailed as "a miracle in Chinese cultural history."</p>
+                    <h3>营救文化名人</h3>
+                    <p class="english-text">Rescuing Cultural Celebrities</p>
+                    <p>1942 年，东江纵队在极端困难的条件下，成功营救了数百名被困在香港的文化名人和爱国民主人士，创造了抗战史上的奇迹，被誉为"中国文化史上的伟大壮举"。</p>
+                    <p class="english-text">In 1942, under extremely difficult conditions, the Dongjiang Column successfully rescued hundreds of cultural celebrities and patriotic democrats trapped in Hong Kong, creating a miracle in the history of the War of Resistance and hailed as "a great feat in the history of Chinese culture."</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>高中英语历史故事阅读课</strong>，可作为<strong>危机处理与责任担当讨论素材</strong>，培养学生的思辨能力和价值判断。</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 西湖岭南文化板块 -->
-    <section id="westlake" class="content-section">
+    <!-- 名人传记板块 -->
+    <section id="famous-people" class="content-section">
         <div class="container">
-            <h2 class="section-title">西湖岭南文化 · West Lake Lingnan Culture</h2>
-            <p class="section-intro">惠州西湖与岭南风物英文素材</p>
+            <h2 class="section-title">名人传记 · Famous Biographies</h2>
+            <p class="section-intro">惠州历史文化名人双语传记</p>
+            
+            <!-- 文化背景小科普 -->
+            <div class="culture-tip-box">
+                <div class="tip-icon">📜</div>
+                <div class="tip-content">
+                    <h4>文化小科普 | Cultural Background</h4>
+                    <p><strong>惠州名人辈出：</strong>惠州自古以来就是人杰地灵之地，孕育了众多历史文化名人。从古代的苏轼、文天祥，到近代的廖仲恺、叶挺，再到现代的众多杰出人才，惠州人以勤劳智慧、爱国爱乡著称。</p>
+                    <p><strong>Huizhou's Famous Figures:</strong> Huizhou has been a land of remarkable people since ancient times, nurturing numerous famous historical and cultural figures. From ancient figures like Su Shi and Wen Tianxiang to modern figures like Liao Zhongkai and Ye Ting, and many outstanding talents in contemporary times, Huizhou people are known for their diligence, wisdom, patriotism, and love for their hometown.</p>
+                </div>
+            </div>
             
             <div class="content-grid">
                 <div class="content-card">
-                    <h3>惠州西湖风光</h3>
-                    <p class="english-text">Huizhou West Lake Scenery</p>
-                    <p>惠州西湖位于惠州市区，是中国六大西湖之一。湖面宽阔，山水相映，素有"苎萝西子"之美誉。</p>
-                    <p class="english-text">Huizhou West Lake, located in the urban area of Huizhou, is one of the six West Lakes in China. With its vast lake surface and reflected mountain views, it enjoys the reputation of "Zhuluo Xizi" (a beauty from ancient Yue state).</p>
+                    <h3>苏轼</h3>
+                    <p class="english-text">Su Shi (1037-1101)</p>
+                    <p>苏轼，字子瞻，号东坡居士，北宋文学家、书法家、画家。绍圣元年（1094 年）被贬惠州，在惠期间三年零九个月。他关心民生疾苦，推广农业技术，兴办教育，对惠州文化发展影响深远。</p>
+                    <p class="english-text">Su Shi, courtesy name Zizhan, art name Dongpo Jushi, was a literary master, calligrapher, and painter of the Northern Song Dynasty. In 1094, he was exiled to Huizhou and lived here for three years and nine months. He cared deeply about people's hardships, promoted agricultural techniques, and established schools, profoundly influencing Huizhou's cultural development.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>高中英语文化课</strong>，可作为<strong>文学人物专题素材</strong>，结合东坡诗词英译进行跨文化教学，培养学生的文学素养和文化自信。</span>
+                    </div>
                 </div>
                 
                 <div class="content-card">
-                    <h3>西湖六景</h3>
-                    <p class="english-text">Six Scenes of West Lake</p>
-                    <ul class="culture-list">
-                        <li>
-                            <strong>苏堤玩月</strong>
-                            <p>Moon Viewing on Su Causeway</p>
-                        </li>
-                        <li>
-                            <strong>玉塔微澜</strong>
-                            <p>Gentle Ripples Around Jade Pagoda</p>
-                        </li>
-                        <li>
-                            <strong>西新避暑</strong>
-                            <p>Summer Retreat at Xixin</p>
-                        </li>
-                        <li>
-                            <strong>荔浦风清</strong>
-                            <p>Clean Breeze from Lychee Grove</p>
-                        </li>
-                        <li>
-                            <strong>桃源烟雨</strong>
-                            <p>Misty Rain Over Peach Blossom Spring</p>
-                        </li>
-                        <li>
-                            <strong>红棉春醉</strong>
-                            <p>Spring Intoxication of Red Kapok</p>
-                        </li>
-                    </ul>
+                    <h3>廖仲恺</h3>
+                    <p class="english-text">Liao Zhongkai (1877-1925)</p>
+                    <p>廖仲恺，广东惠阳人，中国近代民主革命家，国民党左派领袖。他早年参加同盟会，追随孙中山先生从事民主革命，为第一次国共合作作出了重要贡献。1925 年在广州遇刺身亡。</p>
+                    <p class="english-text">Liao Zhongkai (1877-1925), a native of Huiyang, Guangdong, was a modern Chinese democratic revolutionary and leader of the left wing of the Kuomintang. He joined the Tongmenghui early in life and followed Dr. Sun Yat-sen in the democratic revolution, making important contributions to the first KMT-CCP cooperation. He was assassinated in Guangzhou in 1925.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>高中英语历史人物阅读课</strong>，可作为<strong>近代史专题素材</strong>，引导学生了解中国近代革命历史，培养爱国情怀。</span>
+                    </div>
                 </div>
                 
                 <div class="content-card">
-                    <h3>岭南风物</h3>
-                    <p class="english-text">Lingnan Specialties</p>
-                    <div class="specialties-grid">
-                        <div class="specialty-item">
-                            <h4>荔枝</h4>
-                            <p>Lychee - "King of Fruits in Lingnan"</p>
-                        </div>
-                        <div class="specialty-item">
-                            <h4>龙眼</h4>
-                            <p>Longan - Sweet Tropical Fruit</p>
-                        </div>
-                        <div class="specialty-item">
-                            <h4>增城丝苗米</h4>
-                            <p>Zengcheng Simiao Rice - Premium Fragrant Rice</p>
-                        </div>
-                        <div class="specialty-item">
-                            <h4>龙门年桔</h4>
-                            <p>Longmen New Year Orange - Festival Symbol</p>
-                        </div>
+                    <h3>叶挺</h3>
+                    <p class="english-text">Ye Ting (1896-1946)</p>
+                    <p>叶挺，广东惠阳人，中国人民解放军的创建人和领导人之一。他早年参加辛亥革命，后加入中国共产党，参与领导南昌起义、广州起义等重大历史事件。1946 年因飞机失事遇难。</p>
+                    <p class="english-text">Ye Ting (1896-1946), a native of Huiyang, Guangdong, was one of the founders and leaders of the Chinese People's Liberation Army. He joined the Revolution of 1911 early in life, later joined the Communist Party of China, and participated in leading major historical events such as the Nanchang Uprising and Guangzhou Uprising. He died in an air crash in 1946.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>初中英语人物传记课</strong>，可作为<strong>革命传统教育素材</strong>，让学生了解革命先辈的英勇事迹，传承红色基因。</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 本土拓展区 -->
-    <section id="extension" class="content-section extension-section">
+    <!-- 湾区文化融合板块 -->
+    <section id="bay-integration" class="content-section">
         <div class="container">
-            <h2 class="section-title">本土拓展区 · Local Extension Zone</h2>
-            <p class="section-intro">惠州文化英文讲解稿与本地研学素材</p>
+            <h2 class="section-title">湾区文化融合 · Bay Area Cultural Integration</h2>
+            <p class="section-intro">粤港澳大湾区文化交流与融合</p>
             
-            <div class="extension-grid">
-                <div class="extension-card">
-                    <h3>📝 英文讲解稿</h3>
-                    <p class="english-text">English Commentary Scripts</p>
-                    <div class="script-content">
-                        <h4>惠州城市简介</h4>
-                        <p class="english-text">Introduction to Huizhou City</p>
-                        <p>Huizhou, located in southeastern Guangdong Province, is a historic and cultural city with over 2,200 years of history. It borders Shenzhen to the south, Heyuan to the north, Shanwei to the east, and Guangzhou to the west. The city covers an area of 11,347 square kilometers and has a subtropical monsoon climate.</p>
-                        <p>惠州位于广东省东南部，是一座拥有 2200 多年历史的历史文化名城。南邻深圳，北接河源，东连汕尾，西靠广州。全市面积 11347 平方公里，属亚热带季风气候。</p>
-                        
-                        <hr>
-                        
-                        <h4>惠州文化特色</h4>
-                        <p class="english-text">Cultural Features of Huizhou</p>
-                        <p>Huizhou boasts a rich blend of cultures: Dongpo culture represents literati traditions, Hakka culture showcases ethnic migration history, Dongjiang red culture embodies revolutionary spirit, and West Lake culture displays Lingnan landscape aesthetics. These four cultural dimensions together form Huizhou's unique cultural identity.</p>
-                        <p>惠州文化多元融合：东坡文化代表文人传统，客家文化展现民族迁徙历史，东江红色文化体现革命精神，西湖文化彰显岭南山水审美。这四大文化维度共同构成了惠州独特的文化身份。</p>
+            <!-- 文化背景小科普 -->
+            <div class="culture-tip-box">
+                <div class="tip-icon">🌉</div>
+                <div class="tip-content">
+                    <h4>文化小科普 | Cultural Background</h4>
+                    <p><strong>粤港澳大湾区：</strong>粤港澳大湾区包括香港特别行政区、澳门特别行政区和广东省的广州、深圳、珠海、佛山、惠州、东莞、中山、江门、肇庆等 9 市，是国家重大发展战略。惠州作为大湾区重要节点城市，在文化交流、产业合作等方面发挥着重要作用。</p>
+                    <p><strong>Guangdong-Hong Kong-Macao Greater Bay Area:</strong> The Greater Bay Area includes the Hong Kong and Macao Special Administrative Regions and nine cities in Guangdong Province: Guangzhou, Shenzhen, Zhuhai, Foshan, Huizhou, Dongguan, Zhongshan, Jiangmen, and Zhaoqing. It is a major national development strategy. As an important node city in the Greater Bay Area, Huizhou plays an important role in cultural exchange and industrial cooperation.</p>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>湾区文化交流</h3>
+                    <p class="english-text">Bay Area Cultural Exchange</p>
+                    <p>惠州积极参与粤港澳大湾区文化交流活动，通过举办文化节、艺术展览、学术论坛等形式，促进湾区城市间的文化互鉴，推动岭南文化、客家文化、港澳文化的融合发展。</p>
+                    <p class="english-text">Huizhou actively participates in cultural exchange activities of the Guangdong-Hong Kong-Macao Greater Bay Area. Through hosting cultural festivals, art exhibitions, academic forums, and other forms, it promotes cultural mutual learning among Bay Area cities and advances the integrated development of Lingnan culture, Hakka culture, and Hong Kong-Macao culture.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>高中英语跨文化交际课</strong>，可作为<strong>区域合作与文化融合讨论素材</strong>，培养学生的国际视野和跨文化沟通能力。</span>
                     </div>
                 </div>
                 
-                <div class="extension-card">
-                    <h3>🎓 本地研学素材</h3>
-                    <p class="english-text">Local Study Tour Materials</p>
-                    <div class="study-materials">
-                        <div class="material-item">
-                            <h4>研学路线推荐</h4>
-                            <p class="english-text">Recommended Study Routes</p>
-                            <ul>
-                                <li><strong>路线 A（历史文化线）:</strong> 东坡祠 → 合江楼 → 惠州博物馆</li>
-                                <li><strong>Route A (Historical Culture):</strong> Dongpo Temple → Hejiang Tower → Huizhou Museum</li>
-                                <li><strong>路线 B（红色教育线）:</strong> 东江纵队纪念馆 → 土洋会议旧址 → 革命烈士陵园</li>
-                                <li><strong>Route B (Red Education):</strong> Dongjiang Column Memorial → Tuyang Conference Site → Revolutionary Martyrs Cemetery</li>
-                                <li><strong>路线 C（生态文化线）:</strong> 惠州西湖 → 罗浮山 → 南昆山</li>
-                                <li><strong>Route C (Ecological Culture):</strong> Huizhou West Lake → Mount Luofu → Nankun Mountain</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="material-item">
-                            <h4>研学任务单示例</h4>
-                            <p class="english-text">Study Task Sheet Examples</p>
-                            <ul>
-                                <li>Task 1: Find and record the English names of 5 cultural sites</li>
-                                <li>任务 1：查找并记录 5 个文化景点的英文名称</li>
-                                <li>Task 2: Interview a tourist and introduce Huizhou in English</li>
-                                <li>任务 2：采访一位游客并用英语介绍惠州</li>
-                                <li>Task 3: Create a bilingual travel brochure for Huizhou</li>
-                                <li>任务 3：制作一份惠州双语旅游手册</li>
-                            </ul>
-                        </div>
+                <div class="content-card">
+                    <h3>客家文化传承</h3>
+                    <p class="english-text">Inheritance of Hakka Culture</p>
+                    <p>惠州是客家文化的重要发祥地之一，拥有丰富的客家文化资源。在湾区建设背景下，惠州加强客家文化保护与传承，推动客家围屋、客家山歌、客家饮食文化等走向湾区、走向世界。</p>
+                    <p class="english-text">Huizhou is one of the important birthplaces of Hakka culture and has rich Hakka cultural resources. In the context of the Bay Area construction, Huizhou strengthens the protection and inheritance of Hakka culture and promotes Hakka walled villages, Hakka mountain songs, Hakka cuisine, and other cultural elements to the Bay Area and the world.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>初中英语文化课</strong>，可作为<strong>文化传承与创新写作素材</strong>，让学生思考如何在全球化背景下传承和弘扬本土文化。</span>
                     </div>
                 </div>
                 
-                <div class="extension-card">
-                    <h3>📚 词汇表</h3>
-                    <p class="english-text">Vocabulary Glossary</p>
-                    <div class="vocabulary-list">
-                        <div class="vocab-item">
-                            <strong>cultural heritage</strong> [ˈkʌltʃərəl ˈherɪtɪdʒ]
-                            <p>文化遗产</p>
-                        </div>
-                        <div class="vocab-item">
-                            <strong>architecture</strong> [ˈɑːrkɪtektʃər]
-                            <p>建筑</p>
-                        </div>
-                        <div class="vocab-item">
-                            <strong>dynasty</strong> [ˈdɪnəsti]
-                            <p>朝代</p>
-                        </div>
-                        <div class="vocab-item">
-                            <strong>exile</strong> [ˈeksɪl]
-                            <p>流放，贬谪</p>
-                        </div>
-                        <div class="vocab-item">
-                            <strong>resistance</strong> [rɪˈzɪstəns]
-                            <p>抵抗，抗战</p>
-                        </div>
-                        <div class="vocab-item">
-                            <strong>subtropical</strong> [ˌsʌbˈtrɒpɪkl]
-                            <p>亚热带的</p>
-                        </div>
+                <div class="content-card">
+                    <h3>创新合作发展</h3>
+                    <p class="english-text">Innovation and Cooperative Development</p>
+                    <p>惠州依托大湾区平台，加强与港澳在科技创新、教育合作、人才培养等方面的合作。通过共建实验室、联合培养人才、开展学术交流等方式，推动湾区教育文化协同发展。</p>
+                    <p class="english-text">Relying on the Greater Bay Area platform, Huizhou strengthens cooperation with Hong Kong and Macao in technological innovation, educational cooperation, talent training, and other aspects. Through building joint laboratories, jointly training talents, and conducting academic exchanges, it promotes the coordinated development of education and culture in the Bay Area.</p>
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>大学学术英语课</strong>，可作为<strong>区域发展与教育合作演讲素材</strong>，提升学生的学术表达能力和国际视野。</span>
                     </div>
                 </div>
             </div>

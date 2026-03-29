@@ -41,36 +41,26 @@ const searchInput = document.getElementById('searchInput');
 const searchBtn = document.getElementById('searchBtn');
 
 if (searchInput && searchBtn) {
-    // 搜索处理函数
     function handleSearch() {
         const keyword = searchInput.value.trim();
         if (!keyword) return;
         
-        // 构建搜索参数
         const searchParams = new URLSearchParams({
             q: keyword
         });
         
-        // 跳转到搜索结果页（资源库页面）
         window.location.href = `resource-library.html?${searchParams.toString()}`;
     }
     
-    // 事件监听 - 搜索按钮点击
-    searchBtn.addEventListener('click', function(e) {
-        e.preventDefault(); // 阻止按钮默认提交行为
-        handleSearch();
-    });
-    
-    // 事件监听 - 回车键搜索
-    searchInput.addEventListener('keypress', function(e) {
+    searchBtn.addEventListener('click', handleSearch);
+    searchInput.addEventListener('keypress', (e) => {
         if (e.key === 'Enter') {
-            e.preventDefault(); // 阻止表单默认提交
+            e.preventDefault();
             handleSearch();
         }
     });
     
-    // 支持全局快捷键 Ctrl+F 聚焦搜索框
-    document.addEventListener('keydown', function(e) {
+    document.addEventListener('keydown', (e) => {
         if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
             e.preventDefault();
             searchInput.focus();
@@ -78,7 +68,7 @@ if (searchInput && searchBtn) {
     });
 }
 
-// 卡片入场动画
+// 英雄卡片入场动画
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -100px 0px'
@@ -93,15 +83,15 @@ const observer = new IntersectionObserver(function(entries) {
     });
 }, observerOptions);
 
-document.querySelectorAll('.culture-card').forEach(card => {
+document.querySelectorAll('.hero-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
     card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
     observer.observe(card);
 });
 
-// 高亮卡片动画
-document.querySelectorAll('.highlight-card').forEach(card => {
+// 分类卡片动画
+document.querySelectorAll('.category-card').forEach(card => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(30px)';
     card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';

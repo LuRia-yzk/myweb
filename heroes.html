@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>古今英雄人物 - 惠州英语文化育人平台</title>
+    <link rel="stylesheet" href="css/heroes.css?v=20260329085">
+</head>
+<body>
+    <!-- 顶部固定导航 -->
+    <header class="main-header">
+        <div class="nav-container">
+            <div class="logo-area">惠州英语文化育人平台</div>
+            <button class="nav-toggle" id="navToggle" aria-label="切换导航菜单">
+                <span class="toggle-icon"></span>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-item">首页</a>
+                <a href="traditional-culture.html" class="nav-item">中华优秀传统文化</a>
+                <a href="red-culture.html" class="nav-item">中国红色文化</a>
+                <a href="contemporary-culture.html" class="nav-item">中国当代文化</a>
+                <a href="local-culture.html" class="nav-item">惠州本土文化</a>
+                <a href="heroes.html" class="nav-item active highlight">古今英雄人物</a>
+                <a href="resource-library.html" class="nav-item">文化育人资源库</a>
+                <a href="project-about.html" class="nav-item">项目介绍</a>
+                
+                <!-- 搜索框 -->
+                <div class="search-box">
+                    <input type="text" placeholder="搜索资源..." class="search-input" id="searchInput">
+                    <button class="search-btn" id="searchBtn">🔍</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner 区域 -->
+    <section class="heroes-banner">
+        <div class="container">
+            <h1 class="page-title">古今英雄人物</h1>
+            <p class="page-subtitle">Heroes Through Ages</p>
+            <p class="page-desc">传承英雄精神，培育时代新人 | Inheriting Heroic Spirit, Cultivating New Era Talents</p>
+        </div>
+    </section>
+
+    <!-- 英雄分类导航 -->
+    <section class="heroes-categories">
+        <div class="container">
+            <div class="category-grid">
+                <a href="#chinese-heroes" class="category-card">
+                    <div class="category-image chinese-bg">
+                        <span class="category-placeholder">中国英雄</span>
+                    </div>
+                    <div class="category-info">
+                        <h3>中国英雄</h3>
+                        <p class="en-name">Chinese Heroes</p>
+                        <span class="count">共 50+ 位</span>
+                    </div>
+                </a>
+                
+                <a href="#huizhou-heroes" class="category-card featured">
+                    <div class="category-image huizhou-bg">
+                        <span class="category-placeholder">惠州本土英雄</span>
+                    </div>
+                    <div class="category-info">
+                        <h3>惠州本土英雄</h3>
+                        <p class="en-name">Huizhou Local Heroes</p>
+                        <span class="count">共 30+ 位</span>
+                    </div>
+                </a>
+                
+                <a href="#bay-area-heroes" class="category-card">
+                    <div class="category-image bay-bg">
+                        <span class="category-placeholder">湾区英雄</span>
+                    </div>
+                    <div class="category-info">
+                        <h3>湾区英雄</h3>
+                        <p class="en-name">Bay Area Heroes</p>
+                        <span class="count">共 20+ 位</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 中国英雄列表 -->
+    <section class="heroes-list" id="chinese-heroes">
+        <div class="container">
+            <h2 class="section-title">中国英雄</h2>
+            <p class="section-subtitle">Chinese Heroes</p>
+            
+            <div class="heroes-grid">
+                <!-- 林则徐卡片 -->
+                <a href="#" class="hero-card">
+                    <div class="hero-portrait lin-zexu">
+                        <span class="portrait-placeholder">林则徐</span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">林则徐</h3>
+                        <p class="hero-period">清朝 (1785-1850)</p>
+                        <div class="hero-tags">
+                            <span class="tag">民族英雄</span>
+                            <span class="tag">禁烟运动</span>
+                        </div>
+                        <p class="hero-excerpt">领导虎门销烟，展现中华民族反抗外来侵略的坚定决心...</p>
+                    </div>
+                </a>
+                
+                <!-- 岳飞卡片 -->
+                <a href="#" class="hero-card">
+                    <div class="hero-portrait yue-fei">
+                        <span class="portrait-placeholder">岳飞</span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">岳飞</h3>
+                        <p class="hero-period">南宋 (1103-1142)</p>
+                        <div class="hero-tags">
+                            <span class="tag">抗金名将</span>
+                            <span class="tag">精忠报国</span>
+                        </div>
+                        <p class="hero-excerpt">精忠报国，收复失地，千古传颂的爱国精神...</p>
+                    </div>
+                </a>
+                
+                <!-- 文天祥卡片 -->
+                <a href="#" class="hero-card">
+                    <div class="hero-portrait wen-tianxiang">
+                        <span class="portrait-placeholder">文天祥</span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">文天祥</h3>
+                        <p class="hero-period">南宋 (1236-1283)</p>
+                        <div class="hero-tags">
+                            <span class="tag">抗元英雄</span>
+                            <span class="tag">正气歌</span>
+                        </div>
+                        <p class="hero-excerpt">人生自古谁无死，留取丹心照汗青...</p>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- 林则徐详情展开区域 -->
+            <div class="hero-detail-section" id="lin-zexu-detail">
+                <div class="hero-detail-content">
+                    <h3>林则徐 · Lin Zexu (1785-1850)</h3>
+                    
+                    <!-- 双语事迹介绍 -->
+                    <div class="hero-story">
+                        <h4>📖 事迹介绍 | Story</h4>
+                        <p><strong>中文：</strong>林则徐，福建侯官人，清朝政治家、思想家和诗人。道光十八年（1838 年），他被任命为钦差大臣，前往广东查禁鸦片。他在虎门海滩当众销毁了英商交出的 2 万多箱鸦片，显示了中华民族反抗外来侵略的坚强意志。这一壮举成为第一次鸦片战争的导火索，也开启了中国近代史的序幕。</p>
+                        <p><strong>English:</strong> Lin Zexu, a native of Houguan, Fujian, was a statesman, thinker, and poet of the Qing Dynasty. In 1838, he was appointed Imperial Commissioner and sent to Guangdong to ban opium. He publicly destroyed over 20,000 chests of opium surrendered by British merchants on Humen Beach, demonstrating the Chinese nation's strong will to resist foreign aggression. This feat became the trigger for the First Opium War and opened the prologue of modern Chinese history.</p>
+                    </div>
+                    
+                    <!-- 核心精神提炼 -->
+                    <div class="hero-spirit">
+                        <h4>⭐ 核心精神 | Core Spirit</h4>
+                        <ul>
+                            <li><strong>爱国主义精神：</strong>以国家利益为重，不顾个人安危，坚决禁烟</li>
+                            <li><strong>民族气节：</strong>面对列强压力，毫不退缩，维护国家尊严</li>
+                            <li><strong>改革精神：</strong>主张学习西方先进技术，"师夷长技以制夷"</li>
+                            <li><strong>Patriotism:</strong> Prioritizing national interests over personal safety, resolutely banning opium</li>
+                            <li><strong>National Integrity:</strong> Facing pressure from powers without flinching, safeguarding national dignity</li>
+                            <li><strong>Reform Spirit:</strong> Advocating learning from Western advanced technology to counter the West</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 教学拓展问题 -->
+                    <div class="hero-questions">
+                        <h4>💡 教学拓展问题 | Discussion Questions</h4>
+                        <div class="question-item">
+                            <p class="question-label"><strong>Reading Comprehension (阅读理解):</strong></p>
+                            <p>1. What was Lin Zexu's major achievement in Guangdong? (林则徐在广东的主要成就是什么？)</p>
+                            <p>2. Why is the destruction of opium at Humen considered a significant historical event? (为什么虎门销烟被认为是一个重要的历史事件？)</p>
+                        </div>
+                        <div class="question-item">
+                            <p class="question-label"><strong>Critical Thinking (思辨讨论):</strong></p>
+                            <p>3. How do you understand Lin Zexu's spirit of "learning from the West to counter the West"? In today's context, what can we learn from this? (你如何理解林则徐"师夷长技以制夷"的精神？在当今时代，我们可以从中学习什么？)</p>
+                        </div>
+                        <div class="question-item">
+                            <p class="question-label"><strong>Writing Task (写作任务):</strong></p>
+                            <p>4. Write a short essay (150-200 words) titled "The Patriotism of Lin Zexu and Its Contemporary Value". (写一篇 150-200 词的短文，题目为"林则徐的爱国主义精神及其当代价值")</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 教学提示 -->
+                    <div class="teaching-tip hero-tip">
+                        <span class="tip-label">📚 教学提示：</span>
+                        <span>本素材适用于<strong>高中英语阅读与写作课</strong>，可作为<strong>历史人物专题素材</strong>和<strong>爱国主义教育素材</strong>。建议结合鸦片战争历史背景进行跨学科教学，培养学生的家国情怀和历史责任感。</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 惠州本土英雄列表 -->
+    <section class="heroes-list" id="huizhou-heroes">
+        <div class="container">
+            <h2 class="section-title">惠州本土英雄</h2>
+            <p class="section-subtitle">Huizhou Local Heroes</p>
+            
+            <div class="heroes-grid">
+                <!-- 廖仲恺卡片 -->
+                <a href="#" class="hero-card featured">
+                    <div class="hero-portrait liao-zhongkai">
+                        <span class="portrait-placeholder">廖仲恺</span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">廖仲恺</h3>
+                        <p class="hero-period">(1877-1925)</p>
+                        <div class="hero-tags">
+                            <span class="tag">民主革命先驱</span>
+                            <span class="tag">国民党左派领袖</span>
+                        </div>
+                        <p class="hero-excerpt">广东惠州人，近代民主革命家，积极协助孙中山制定三大政策...</p>
+                    </div>
+                </a>
+                
+                <!-- 叶挺卡片 -->
+                <a href="#" class="hero-card">
+                    <div class="hero-portrait ye-ting">
+                        <span class="portrait-placeholder">叶挺</span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">叶挺</h3>
+                        <p class="hero-period">(1896-1946)</p>
+                        <div class="hero-tags">
+                            <span class="tag">北伐名将</span>
+                            <span class="tag">新四军军长</span>
+                        </div>
+                        <p class="hero-excerpt">惠阳人，中国人民解放军创建人和新四军的重要领导人...</p>
+                    </div>
+                </a>
+                
+                <!-- 邓演达卡片 -->
+                <a href="#" class="hero-card">
+                    <div class="hero-portrait deng-yan-da">
+                        <span class="portrait-placeholder">邓演达</span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">邓演达</h3>
+                        <p class="hero-period">(1895-1931)</p>
+                        <div class="hero-tags">
+                            <span class="tag">民主革命家</span>
+                            <span class="tag">农工民主党创始人</span>
+                        </div>
+                        <p class="hero-excerpt">惠阳人，杰出的民主革命家、政治活动家...</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 湾区英雄列表 -->
+    <section class="heroes-list" id="bay-area-heroes">
+        <div class="container">
+            <h2 class="section-title">湾区英雄</h2>
+            <p class="section-subtitle">Bay Area Heroes</p>
+            
+            <div class="heroes-grid">
+                <!-- 孙中山卡片 -->
+                <a href="#" class="hero-card">
+                    <div class="hero-portrait sun-yat-sen">
+                        <span class="portrait-placeholder">孙中山</span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">孙中山</h3>
+                        <p class="hero-period">(1866-1925)</p>
+                        <div class="hero-tags">
+                            <span class="tag">国父</span>
+                            <span class="tag">辛亥革命</span>
+                        </div>
+                        <p class="hero-excerpt">广东香山人，伟大的民主革命先行者，中华民国和中国国民党的缔造者...</p>
+                    </div>
+                </a>
+                
+                <!-- 梁启超卡片 -->
+                <a href="#" class="hero-card">
+                    <div class="hero-portrait liang-qichao">
+                        <span class="portrait-placeholder">梁启超</span>
+                    </div>
+                    <div class="hero-info">
+                        <h3 class="hero-name">梁启超</h3>
+                        <p class="hero-period">(1873-1929)</p>
+                        <div class="hero-tags">
+                            <span class="tag">思想家</span>
+                            <span class="tag">维新变法</span>
+                        </div>
+                        <p class="hero-excerpt">广东新会人，近代思想家、政治家、教育家、史学家...</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部 Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-item">
+                    <div class="footer-icon">📖</div>
+                    <h4>平台使用指南</h4>
+                    <ul class="footer-links">
+                        <li><a href="project-about.html#guide">快速入门</a></li>
+                        <li><a href="resource-library.html#search">资源检索</a></li>
+                        <li><a href="project-about.html#download">下载指引</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-item">
+                    <div class="footer-icon">📢</div>
+                    <h4>资源更新公告</h4>
+                    <div class="update-notice">
+                        <div class="notice-item">
+                            <span class="notice-date">2024-03-25</span>
+                            <p class="notice-content">新增英雄人物双语教学资源</p>
+                        </div>
+                        <a href="resource-library.html#notices" class="view-all">查看全部 →</a>
+                    </div>
+                </div>
+                
+                <div class="footer-item">
+                    <div class="footer-icon">💡</div>
+                    <h4>需求征集入口</h4>
+                    <p class="footer-desc">欢迎提出您的资源需求建议！</p>
+                    <a href="project-about.html#feedback" class="btn-feedback">提交需求</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 惠州英语文化育人平台 | 惠州市哲学社会科学规划课题 HZSK2024ZD003</p>
+                <p>惠州学院外语学科研发 | 技术支持：现代教育技术中心</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/heroes.js?v=20260329015"></script>
+</body>
+</html>

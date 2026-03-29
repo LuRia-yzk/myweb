@@ -34,10 +34,12 @@ body {
 .nav-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0.8rem 2rem;
+    padding: 0.5rem 2rem 0.8rem 2rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
+    position: relative;
 }
 
 .logo-area {
@@ -45,6 +47,7 @@ body {
     font-weight: bold;
     color: var(--china-red);
     letter-spacing: 3px;
+    margin-bottom: 0.3rem;
 }
 
 .nav-menu {
@@ -55,18 +58,30 @@ body {
 
 .nav-item {
     text-decoration: none;
-    color: var(--text-dark);
+    color: var(--elegant-cyan);
     font-size: 1rem;
-    padding: 0.5rem 1rem;
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
     border-radius: 4px;
     transition: all 0.3s ease;
-    font-family: "Songti SC", "SimSun", serif;
+    position: relative;
 }
 
 .nav-item:hover,
 .nav-item.active {
     color: var(--china-red);
     background: rgba(201, 55, 54, 0.05);
+}
+
+.nav-item.active::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: var(--china-red);
 }
 
 /* 移动端导航折叠按钮 */
@@ -123,7 +138,7 @@ body {
 
 /* 页面标题 Banner */
 .page-banner {
-    margin-top: 80px;
+    margin-top: 100px;
     padding: 4rem 2rem;
     text-align: center;
     background: linear-gradient(135deg, rgba(201, 55, 54, 0.05) 0%, rgba(54, 124, 142, 0.05) 100%);
@@ -149,7 +164,7 @@ body {
     background: var(--text-light);
     border-bottom: 2px solid var(--elegant-cyan);
     position: sticky;
-    top: 70px;
+    top: 90px;
     z-index: 999;
     box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
@@ -566,6 +581,28 @@ body {
 
 /* 响应式设计 */
 @media (max-width: 768px) {
+    .nav-container {
+        flex-direction: row;
+        justify-content: center;
+        padding: 0.8rem 1.5rem;
+        gap: 1rem;
+        min-height: 70px;
+    }
+    
+    .logo-area {
+        font-size: 1.3rem;
+        letter-spacing: 2px;
+        position: absolute;
+        left: 1.5rem;
+        margin-bottom: 0;
+    }
+    
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        right: 1.5rem;
+    }
+    
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -674,5 +711,114 @@ body {
 @media (max-width: 768px) {
     html {
         font-size: 13px;
+    }
+}
+
+/* 文化背景小科普样式 */
+.culture-tip-box {
+    background: linear-gradient(135deg, rgba(54, 124, 142, 0.05), rgba(201, 55, 54, 0.05));
+    border-left: 4px solid var(--china-red);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0 3rem 0;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.tip-icon {
+    font-size: 3rem;
+    flex-shrink: 0;
+}
+
+.tip-content h4 {
+    color: var(--china-red);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.tip-content p {
+    line-height: 1.8;
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+}
+
+.tip-content strong {
+    color: var(--elegant-cyan);
+    font-weight: bold;
+}
+
+/* 教学提示样式 */
+.teaching-tip {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 193, 7, 0.1));
+    border: 2px solid rgba(255, 193, 7, 0.3);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: flex-start;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.tip-label {
+    color: var(--china-red);
+    font-weight: bold;
+    flex-shrink: 0;
+    font-size: 0.9rem;
+}
+
+.teaching-tip strong {
+    color: var(--elegant-cyan);
+    font-weight: bold;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+    .page-banner {
+        margin-top: 90px;
+    }
+    
+    .category-nav {
+        top: 80px;
+    }
+    
+    .culture-tip-box {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+    
+    .tip-icon {
+        font-size: 2.5rem;
+    }
+    
+    .tip-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .tip-content p {
+        font-size: 0.9rem;
+    }
+    
+    .teaching-tip {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .tip-label {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-banner {
+        margin-top: 85px;
+    }
+    
+    .category-nav {
+        top: 75px;
     }
 }

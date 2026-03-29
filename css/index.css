@@ -14,10 +14,11 @@
 
 body {
     min-height: 100vh;
-    background-color: var(--beige-bg);
+    background: #FAF9F6;
     font-family: "Songti SC", "SimSun", serif;
     color: var(--text-dark);
     overflow-x: hidden;
+    position: relative;
 }
 
 /* 顶部固定导航 */
@@ -34,10 +35,12 @@ body {
 .nav-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0.8rem 2rem;
+    padding: 0.5rem 2rem 0.8rem 2rem;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
+    position: relative;
 }
 
 .logo-area {
@@ -45,12 +48,48 @@ body {
     font-weight: bold;
     color: var(--china-red);
     letter-spacing: 3px;
+    margin-bottom: 0.3rem;
 }
 
 .nav-menu {
     display: flex;
     gap: 1.5rem;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+/* 搜索框样式 */
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid var(--elegant-cyan);
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.9rem;
+    width: 150px;
+    background: transparent;
+    font-family: inherit;
+}
+
+.search-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: var(--elegant-cyan);
+    transition: transform 0.2s;
+}
+
+.search-btn:hover {
+    transform: scale(1.1);
 }
 
 /* 移动端导航折叠按钮 */
@@ -133,49 +172,238 @@ body {
     background: var(--china-red);
 }
 
+.nav-item.highlight {
+    color: var(--china-red);
+    font-weight: bold;
+}
+
 /* Banner 区域 */
 .banner-section {
     margin-top: 65px;
-    min-height: 1000px;
+    min-height: 100vh;
     padding: 2rem 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.project-tag {
-    font-size: 0.85rem;
-    padding: 0.4rem 1rem;
+/* 惠州本土文化置顶推荐区 */
+.huizhou-featured {
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.03) 0%, rgba(54, 124, 142, 0.03) 100%);
+    border-top: 2px solid var(--china-red);
+    border-bottom: 2px solid var(--elegant-cyan);
+    padding: 3rem 1rem;
+    position: relative;
+}
+
+.huizhou-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.huizhou-badge {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.huizhou-title {
+    font-size: 2.5rem;
+    color: var(--china-red);
+    font-weight: bold;
+    letter-spacing: 8px;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.huizhou-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-dark);
     margin-bottom: 1.5rem;
+    font-family: "Arial", sans-serif;
 }
 
-/* 祥云背景装饰 */
-.banner-section::before {
-    content: "";
+.btn-huizhou {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, var(--china-red), var(--elegant-cyan));
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(201, 55, 54, 0.3);
+}
+
+.btn-huizhou:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(201, 55, 54, 0.4);
+}
+
+.huizhou-carousel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.huizhou-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.huizhou-card.featured {
+    box-shadow: 0 8px 24px rgba(201, 55, 54, 0.15);
+    border: 2px solid var(--china-red);
+    grid-column: span 1;
+}
+
+.huizhou-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.huizhou-card.featured:hover {
+    transform: translateY(-8px);
+}
+
+.card-image {
+    height: 300px;
+    background: linear-gradient(135deg, rgba(54, 124, 142, 0.1), rgba(201, 55, 54, 0.1));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.huizhou-card.featured .card-image {
+    height: 300px;
+}
+
+.image-placeholder {
+    text-align: center;
+}
+
+.image-placeholder .icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.image-placeholder .label {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.card-info {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.card-info h3 {
+    font-size: 1.5rem;
+    color: var(--china-red);
+    margin-bottom: 0.3rem;
+    font-weight: bold;
+}
+
+.card-info p {
+    font-size: 0.95rem;
+    color: var(--elegant-cyan);
+    margin-bottom: 0.8rem;
+    font-family: "Arial", sans-serif;
+}
+
+.card-info .desc {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.tags {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.tag {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    background: linear-gradient(135deg, rgba(201, 55, 54, 0.1), rgba(54, 124, 142, 0.1));
+    color: var(--china-red);
+    border-radius: 20px;
+    border: 1px solid rgba(201, 55, 54, 0.2);
+    font-weight: 500;
+}
+
+.btn-learn {
+    display: inline-block;
+    padding: 0.6rem 1.5rem;
+    background: var(--elegant-cyan);
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-learn:hover {
+    background: var(--china-red);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(54, 124, 142, 0.3);
+}
+
+/* 惠州元素底图 */
+.huizhou-bg {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-        radial-gradient(circle at 20% 30%, rgba(54, 124, 142, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 80% 70%, rgba(201, 55, 54, 0.06) 0%, transparent 40%);
-    opacity: 0.6;
-    z-index: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
 
-/* 东坡剪影装饰（右侧） */
-.dongpo-silhouette {
+.huizhou-lineart {
+    width: 100%;
+    height: 100%;
+}
+
+.gradient-overlay {
     position: absolute;
-    right: 5%;
-    bottom: 0;
-    width: 35%;
-    height: 80%;
-    background: linear-gradient(135deg, transparent 40%, rgba(54, 124, 142, 0.15) 100%);
-    clip-path: polygon(20% 100%, 40% 60%, 60% 80%, 80% 40%, 100% 100%);
-    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(54, 124, 142, 0.1) 0%, 
+        rgba(201, 55, 54, 0.08) 100%);
+    z-index: 2;
 }
 
 .banner-content {
     position: relative;
-    z-index: 1;
+    z-index: 3;
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 2rem;
@@ -183,15 +411,24 @@ body {
 }
 
 .project-tag {
-    display: inline-block;
-    background: rgba(54, 124, 142, 0.1);
-    color: var(--elegant-cyan);
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
-    font-size: 0.9rem;
-    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
     margin-bottom: 1.5rem;
-    border: 1px solid rgba(54, 124, 142, 0.3);
+}
+
+.project-code {
+    font-size: 0.9rem;
+    color: var(--china-red);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.project-unit {
+    font-size: 0.75rem;
+    color: #666;
+    letter-spacing: 2px;
 }
 
 /* 桥形 Logo - 超大尺寸 */
@@ -217,6 +454,27 @@ body {
     align-items: center;
     justify-content: center;
     text-shadow: 8px 8px 25px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: text-fade-in 1.5s ease-out forwards;
+}
+
+.bridge-left {
+    animation-delay: 0.3s;
+}
+
+.bridge-right {
+    animation-delay: 0.6s;
+}
+
+@keyframes text-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .bridge-arch {
@@ -236,11 +494,53 @@ body {
     margin-bottom: 2rem;
     text-shadow: 8px 8px 25px rgba(0, 0, 0, 0.25);
     white-space: nowrap;
+    opacity: 0;
+    animation: text-fade-in 1.5s ease-out 0.9s forwards;
 }
 
 .bridge-curve {
     width: 640px;
     height: 260px;
+}
+
+.bridge-curve path {
+    stroke-dasharray: 500;
+    stroke-dashoffset: 500;
+    animation: draw-curve 2.5s ease-out 1.2s forwards;
+}
+
+.bridge-curve path:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+@keyframes draw-curve {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* 主标语样式 */
+.main-slogan {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--china-red);
+    margin: 1.5rem 0;
+    letter-spacing: 5px;
+    line-height: 1.4;
+    opacity: 0;
+    animation: text-fade-in 1.5s ease-out 1.8s forwards;
+}
+
+/* 辅助标语 */
+.auxiliary-slogans {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--elegant-cyan);
+    opacity: 0;
+    animation: text-fade-in 1.5s ease-out 2.1s forwards;
 }
 
 .sub-title {
@@ -259,46 +559,47 @@ body {
 
 .banner-actions {
     display: flex;
-    gap: 1.5rem;
+    gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 2.5rem;
 }
 
 .btn {
     display: inline-block;
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 50px;
     transition: all 0.3s ease;
-    font-weight: 500;
+    font-weight: bold;
     letter-spacing: 2px;
     cursor: pointer;
+    border: none;
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--china-red), #a82f2e);
+    background: var(--china-red);
     color: var(--text-light);
-    border: 2px solid var(--china-red);
-    box-shadow: 0 4px 12px rgba(201, 55, 54, 0.3);
+    box-shadow: 0 4px 15px rgba(201, 55, 54, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(201, 55, 54, 0.4);
+    box-shadow: 0 6px 20px rgba(201, 55, 54, 0.4);
 }
 
 .btn-secondary {
     background: transparent;
     color: var(--elegant-cyan);
     border: 2px solid var(--elegant-cyan);
-    box-shadow: 0 4px 12px rgba(54, 124, 142, 0.2);
+    box-shadow: 0 4px 15px rgba(54, 124, 142, 0.2);
 }
 
 .btn-secondary:hover {
     background: rgba(54, 124, 142, 0.08);
     transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(54, 124, 142, 0.3);
+    box-shadow: 0 6px 20px rgba(54, 124, 142, 0.3);
 }
 
 /* 五大文化核心入口 */
@@ -321,11 +622,28 @@ body {
     padding: 4rem 2.5rem;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
     box-shadow: 0 6px 16px rgba(0,0,0,0.08);
     text-decoration: none;
+    animation: card-gentle-float 6s ease-in-out infinite;
+}
+
+/* 卡片依次错开浮动动画 */
+.culture-card:nth-child(1) { animation-delay: 0s; }
+.culture-card:nth-child(2) { animation-delay: 0.5s; }
+.culture-card:nth-child(3) { animation-delay: 1s; }
+.culture-card:nth-child(4) { animation-delay: 1.5s; }
+.culture-card:nth-child(5) { animation-delay: 2s; }
+
+@keyframes card-gentle-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
 }
 
 .culture-card::before {
@@ -336,16 +654,51 @@ body {
     right: 0;
     height: 5px;
     background: var(--elegant-cyan);
-    transition: all 0.3s;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 光晕流动效果 */
+.culture-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(54, 124, 142, 0.1) 50%,
+        transparent 70%
+    );
+    transform: rotate(45deg);
+    transition: all 0.6s ease;
+    opacity: 0;
 }
 
 .culture-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 16px 36px rgba(0,0,0,0.15);
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(54, 124, 142, 0.25);
+    border-color: var(--china-red);
 }
 
 .culture-card:hover::before {
     height: 7px;
+    background: var(--china-red);
+}
+
+.culture-card:hover::after {
+    opacity: 1;
+    animation: shimmer-glow 0.8s ease-in-out;
+}
+
+@keyframes shimmer-glow {
+    from {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    }
+    to {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+    }
 }
 
 .culture-card h3 {
@@ -370,11 +723,10 @@ body {
     background: var(--china-red);
 }
 
-/* 文化精选区 */
-.selection-section {
+/* 文化精选模块 */
+.culture-highlights {
     padding: 4rem 2rem;
-    background: #ffffff;
-    border-top: 1px solid #e8e4dc;
+    background: white;
 }
 
 .container {
@@ -386,61 +738,216 @@ body {
     font-size: 2rem;
     color: var(--china-red);
     text-align: center;
-    margin-bottom: 3rem;
-    letter-spacing: 4px;
-    position: relative;
-    padding-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 3px;
 }
 
-.section-title::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, var(--elegant-cyan), transparent);
-}
-
-.selection-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.selection-item {
-    background: var(--beige-bg);
-    border-left: 5px solid var(--elegant-cyan);
-    padding: 2rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    cursor: pointer;
-}
-
-.selection-item:hover {
-    transform: translateX(8px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
-
-.selection-item h4 {
-    font-size: 1.4rem;
-    color: var(--elegant-cyan);
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-}
-
-.selection-item p {
+.section-subtitle {
+    text-align: center;
+    color: #999;
     font-size: 1rem;
+    margin-bottom: 3rem;
+    font-style: italic;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.highlight-card {
+    background: var(--beige-bg);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: 2px solid transparent;
+}
+
+.highlight-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: var(--elegant-cyan);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--china-red);
+}
+
+.card-icon {
+    font-size: 1.8rem;
+}
+
+.card-header h3 {
+    font-size: 1.4rem;
+    color: var(--china-red);
+    flex: 1;
+}
+
+.card-label {
+    font-size: 0.8rem;
+    color: #999;
+    font-style: italic;
+}
+
+.quote-text {
+    font-size: 1.3rem;
+    font-weight: bold;
     color: var(--text-dark);
+    margin-bottom: 0.8rem;
+    font-style: italic;
+}
+
+.quote-english {
+    font-size: 1.1rem;
+    color: var(--elegant-cyan);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+.quote-explanation {
+    font-size: 0.95rem;
+    color: #666;
     line-height: 1.6;
+}
+
+.lesson-segments {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.segment-tag {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+}
+
+.segment-tag.primary { background: #FF9F43; }
+.segment-tag.junior { background: #54a0ff; }
+.segment-tag.senior { background: #5f27cd; }
+.segment-tag.university { background: #00d2d3; }
+
+.lesson-title {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.8rem;
+}
+
+.lesson-desc {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.lesson-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: #999;
+}
+
+.recommend-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.category-item {
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
+}
+
+.category-thumb {
+    width: 100%;
+    height: 120px;
+    border-radius: 10px;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.category-thumb.traditional { background: linear-gradient(135deg, #667eea, #764ba2); }
+.category-thumb.red { background: linear-gradient(135deg, #f093fb, #f5576c); }
+.category-thumb.local { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+.category-thumb.bay { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+
+.category-item h4 {
+    font-size: 1rem;
+    color: var(--china-red);
+    margin-bottom: 0.3rem;
+}
+
+.category-item p {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+.card-footer {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.btn-more {
+    display: inline-block;
+    background: transparent;
+    border: none;
+    color: var(--elegant-cyan);
+    font-size: 0.95rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.btn-more:hover {
+    color: var(--china-red);
 }
 
 /* 平台理念区 */
 .concept-section {
     padding: 5rem 2rem;
-    background: linear-gradient(180deg, #ffffff 0%, var(--beige-bg) 100%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 245, 240, 0.85) 100%);
     text-align: center;
+    position: relative;
+}
+
+/* 添加水墨晕染效果 */
+.concept-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(ellipse 40% 25% at 50% 30%, rgba(35, 35, 35, 0.04) 0%, transparent 65%),
+        radial-gradient(ellipse 35% 20% at 80% 80%, rgba(35, 35, 35, 0.03) 0%, transparent 55%);
+    filter: blur(30px);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .concept-text {
@@ -451,83 +958,322 @@ body {
     line-height: 1.8;
     letter-spacing: 3px;
     padding: 2rem;
-    background: rgba(255,255,255,0.6);
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 12px;
     border: 1px solid rgba(54, 124, 142, 0.2);
+    position: relative;
+    z-index: 1;
 }
 
 /* 底部 Footer */
 .site-footer {
-    background: var(--text-dark);
-    color: #cccccc;
+    background: linear-gradient(135deg, var(--china-red) 0%, #8B2D2C 100%);
+    color: white;
+    padding: 3rem 2rem 1.5rem;
+}
+
+/* 平台使用指南 */
+.guide-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.guide-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.guide-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+}
+
+.guide-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.guide-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.guide-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.guide-separator {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.2rem;
+}
+
+.guide-desc {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+/* 资源更新公告 */
+.update-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.update-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
     text-align: center;
 }
 
-.footer-info {
+.update-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #FFD700;
+    text-align: center;
+}
+
+.update-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.update-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    margin-bottom: 0.8rem;
+    transition: all 0.3s ease;
+}
+
+.update-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+}
+
+.update-tag {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-weight: bold;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.update-tag.new {
+    background: linear-gradient(135deg, #FF6B6B, #FF8E53);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.update-text {
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.update-date {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+}
+
+.view-all-updates {
+    display: inline-block;
+    margin-top: 1rem;
+    color: #FFD700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.view-all-updates:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* 需求征集 */
+.feedback-section {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.feedback-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feedback-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #FFD700;
+}
+
+.feedback-desc {
+    font-size: 0.95rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.feedback-actions {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     flex-wrap: wrap;
-    font-size: 0.95rem;
 }
 
-.footer-link {
-    color: var(--elegant-cyan);
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.footer-link:hover {
+.btn-feedback-primary {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: linear-gradient(135deg, #FFD700, #FFC107);
     color: var(--china-red);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+}
+
+.btn-feedback-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+}
+
+.btn-feedback-secondary {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-feedback-secondary:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.85rem;
+    opacity: 0.8;
+    line-height: 1.8;
 }
 
 /* 响应式设计 - 等比例缩放适配 */
 @media (max-width: 1200px) {
-    /* 保持布局不变，仅调整整体大小 */
     html {
         font-size: 14px;
+    }
+    
+    /* 搜索框在平板端显示，但调整大小 */
+    .search-box {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .search-input {
+        width: 150px;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 1rem;
     }
 }
 
 @media (max-width: 768px) {
-    /* 导航栏优化 */
+    /* 导航栏优化 - 移动端保持侧滑菜单 */
     .nav-container {
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
         padding: 0.8rem 1.5rem;
-        gap: 0;
+        gap: 1rem;
+        min-height: 65px;
     }
     
     .logo-area {
         font-size: 1.3rem;
         letter-spacing: 2px;
+        position: absolute;
+        left: 1.5rem;
+        margin-bottom: 0;
     }
     
     /* 显示折叠按钮 */
     .nav-toggle {
         display: block;
+        position: absolute;
+        right: 1.5rem;
     }
     
-    /* 导航菜单默认隐藏 */
+    /* 导航菜单默认隐藏 - 侧边滑出式 */
     .nav-menu {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
+        position: fixed;
+        top: 65px;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 65px);
         background: rgba(248, 245, 240, 0.98);
         flex-direction: column;
-        padding: 1rem 1.5rem;
+        padding: 2rem;
         gap: 0.5rem;
-        border-bottom: 2px solid var(--china-red);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease;
+        border-left: 2px solid var(--china-red);
+        box-shadow: -2px 0 12px rgba(0,0,0,0.08);
+        transition: right 0.3s ease;
+        overflow-y: auto;
     }
     
-    .nav-menu.show {
-        max-height: 500px;
+    .nav-menu.active {
+        right: 0;
     }
     
     .nav-item {
@@ -536,8 +1282,43 @@ body {
         border-bottom: 1px solid rgba(54, 124, 142, 0.1);
     }
     
-    .nav-item:last-child {
-        border-bottom: none;
+    /* 移动端搜索框显示在菜单底部 */
+    .search-box {
+        display: flex;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(54, 124, 142, 0.1);
+    }
+    
+    .search-input {
+        flex: 1;
+        width: auto;
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        border: 2px solid rgba(54, 124, 142, 0.2);
+        border-radius: 20px;
+        outline: none;
+    }
+    
+    .search-input:focus {
+        border-color: var(--china-red);
+    }
+    
+    .search-btn {
+        padding: 0.6rem 1rem;
+        margin-left: 0.5rem;
+        background: var(--china-red);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    .search-btn:hover {
+        background: var(--elegant-cyan);
+        transform: scale(1.1);
     }
     
     /* 移动端等比例缩放，保持布局一致 */
@@ -545,20 +1326,43 @@ body {
         font-size: 13px;
     }
     
-    .nav-container {
-        padding: 0.8rem 1.5rem;
+    .main-slogan {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
     }
     
-    .logo-area {
-        font-size: 1.3rem;
+    .auxiliary-slogans {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
     }
     
-    .nav-menu {
+    .banner-actions {
+        flex-direction: column;
+        width: 100%;
         gap: 1rem;
     }
     
-    .nav-item {
-        font-size: 0.95rem;
+    .btn {
+        width: 100%;
+        max-width: 280px;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .highlights-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .recommend-categories {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-item {
+        text-align: center;
     }
     
     /* Banner 区域 */
@@ -566,6 +1370,47 @@ body {
         margin-top: 75px;
         min-height: 500px;
         padding: 2rem 1.5rem;
+    }
+    
+    /* 惠州本土文化推荐区移动端适配 */
+    .huizhou-featured {
+        padding: 2rem 1rem;
+    }
+    
+    .huizhou-title {
+        font-size: 1.8rem;
+        letter-spacing: 4px;
+    }
+    
+    .huizhou-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .huizhou-badge {
+        font-size: 2.5rem;
+    }
+    
+    .btn-huizhou {
+        padding: 0.6rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .huizhou-carousel {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .huizhou-card.featured {
+        border-width: 2px;
+    }
+    
+    .huizhou-card.featured .card-image {
+        height: 300px;
+    }
+    
+    .huizhou-card:hover,
+    .huizhou-card.featured:hover {
+        transform: translateY(-4px);
     }
     
     .project-tag {
@@ -604,17 +1449,13 @@ body {
         letter-spacing: 3px;
     }
     
-    .btn {
-        padding: 0.9rem 2rem;
-        font-size: 1rem;
-    }
-    
     /* 五大文化核心入口 */
     .core-entries-section {
         padding: 2rem 1.5rem 4rem;
     }
     
     .entry-grid {
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
     
@@ -627,20 +1468,12 @@ body {
     }
     
     /* 文化精选区 */
-    .selection-section {
+    .culture-highlights {
         padding: 3.5rem 1.5rem;
     }
     
     .section-title {
         font-size: 1.8rem;
-    }
-    
-    .selection-grid {
-        gap: 1.5rem;
-    }
-    
-    .selection-item h4 {
-        font-size: 1.3rem;
     }
     
     /* 平台理念区 */
@@ -650,6 +1483,59 @@ body {
     
     .concept-text {
         font-size: 1.3rem;
+    }
+    
+    /* 底部辅助区移动端适配 */
+    .guide-section,
+    .update-section,
+    .feedback-section {
+        padding: 1.5rem 1rem;
+    }
+    
+    .guide-icon,
+    .update-icon,
+    .feedback-icon {
+        font-size: 2rem;
+    }
+    
+    .guide-section h3,
+    .update-section h3,
+    .feedback-section h3 {
+        font-size: 1.2rem;
+    }
+    
+    .guide-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .guide-link {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .guide-separator {
+        display: none;
+    }
+    
+    .update-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .update-date {
+        align-self: flex-end;
+    }
+    
+    .feedback-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .btn-feedback-primary,
+    .btn-feedback-secondary {
+        width: 100%;
+        max-width: 280px;
     }
 }
 
@@ -669,12 +1555,13 @@ body {
     }
     
     .nav-menu {
-        gap: 0.6rem;
+        width: 85%;
+        padding: 1.5rem;
     }
     
     .nav-item {
         font-size: 0.85rem;
-        padding: 0.3rem 0.5rem;
+        padding: 0.6rem 0;
     }
     
     /* Banner 区域 */
@@ -724,7 +1611,7 @@ body {
     
     .btn {
         padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
+        font-size: 1rem;
     }
     
     /* 五大文化核心入口 */
@@ -733,6 +1620,7 @@ body {
     }
     
     .entry-grid {
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
     
@@ -745,7 +1633,7 @@ body {
     }
     
     /* 文化精选区 */
-    .selection-section {
+    .culture-highlights {
         padding: 3rem 1rem;
     }
     
@@ -753,16 +1641,16 @@ body {
         font-size: 1.5rem;
     }
     
-    .selection-item {
+    .highlights-grid {
+        gap: 1.5rem;
+    }
+    
+    .highlight-card {
         padding: 1.5rem;
     }
     
-    .selection-item h4 {
+    .quote-text {
         font-size: 1.1rem;
-    }
-    
-    .selection-item p {
-        font-size: 0.9rem;
     }
     
     /* 平台理念区 */
@@ -776,7 +1664,11 @@ body {
     }
     
     /* Footer */
-    .footer-info {
-        font-size: 0.85rem;
+    .site-footer {
+        padding: 2rem 1rem 1rem;
+    }
+    
+    .footer-grid {
+        gap: 2rem;
     }
 }
