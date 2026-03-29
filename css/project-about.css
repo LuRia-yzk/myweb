@@ -694,22 +694,62 @@ body {
     margin-bottom: 1rem;
 }
 
-.feature-card h3 {
-    font-size: 1.5rem;
-    color: var(--china-red);
-    margin-bottom: 0.5rem;
+/* 自定义玻璃水杯图标 - 纯文化育人定位 */
+.custom-water-glass {
+    font-size: 3.5rem;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem auto;
+    background: 
+        /* 杯体透明玻璃 */
+        linear-gradient(180deg, 
+            rgba(200, 230, 255, 0.3) 0%, 
+            rgba(180, 220, 255, 0.4) 100%),
+        /* 杯口 */
+        linear-gradient(90deg,
+            transparent 10%,
+            rgba(255, 255, 255, 0.6) 10%,
+            rgba(255, 255, 255, 0.6) 90%,
+            transparent 90%);
+    background-size: 100% 100%;
+    border-radius: 4px 4px 12px 12px;
+    position: relative;
+    box-shadow: 
+        inset 0 0 20px rgba(100, 180, 255, 0.3),
+        0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.feature-card .english-text {
-    color: var(--elegant-cyan);
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    font-style: italic;
+/* 杯口上沿 */
+.custom-water-glass::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 8px;
+    border: 3px solid rgba(200, 230, 255, 0.8);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
 }
 
-.feature-card p {
-    line-height: 1.7;
-    text-indent: 2em;
+/* 杯中的纯净水（蓝色） */
+.custom-water-glass::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 55%;
+    background: linear-gradient(180deg, 
+        #4DA6FF 0%, 
+        #3399FF 30%, 
+        #2689F2 70%, 
+        #1A7FE6 100%);
+    border-radius: 0 0 8px 8px;
+    opacity: 0.85;
+    box-shadow: inset 0 -5px 15px rgba(0, 100, 255, 0.3);
 }
 
 /* 页脚 */
